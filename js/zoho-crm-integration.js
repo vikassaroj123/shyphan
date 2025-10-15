@@ -30,7 +30,7 @@
         setInterval(checkForNewForms, 3000);
     }
 
-    // Add highly visible success message styles
+    // Add submission confirmation styles - positioned below submit button
     function addSuccessMessageStyles() {
         // Remove existing styles if any
         const existingStyle = document.getElementById('zoho-success-styles');
@@ -41,73 +41,52 @@
         const style = document.createElement('style');
         style.id = 'zoho-success-styles';
         style.textContent = `
-            .zoho-success-message {
-                position: fixed !important;
-                top: 50% !important;
-                left: 50% !important;
-                transform: translate(-50%, -50%) !important;
+            .zoho-submission-confirmation {
                 background: #28a745 !important;
                 color: white !important;
-                border: 3px solid #1e7e34 !important;
-                border-radius: 10px !important;
-                padding: 25px 35px !important;
-                font-size: 18px !important;
+                border: 2px solid #1e7e34 !important;
+                border-radius: 8px !important;
+                padding: 15px 20px !important;
+                font-size: 16px !important;
                 font-weight: bold !important;
-                z-index: 99999 !important;
                 display: none !important;
-                box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
-                animation: zohoSuccessPulse 0.5s ease-out !important;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+                animation: zohoConfirmationSlide 0.5s ease-out !important;
                 text-align: center !important;
-                min-width: 300px !important;
+                margin: 15px 0 !important;
                 font-family: Arial, sans-serif !important;
+                position: relative !important;
             }
-            .zoho-success-message.show {
+            .zoho-submission-confirmation.show {
                 display: block !important;
             }
-            .zoho-success-message::before {
+            .zoho-submission-confirmation::before {
                 content: "✓" !important;
-                display: block !important;
+                display: inline-block !important;
                 background-color: white !important;
                 color: #28a745 !important;
                 border-radius: 50% !important;
-                width: 40px !important;
-                height: 40px !important;
-                line-height: 40px !important;
+                width: 24px !important;
+                height: 24px !important;
+                line-height: 24px !important;
                 text-align: center !important;
-                margin: 0 auto 15px auto !important;
+                margin-right: 10px !important;
                 font-weight: bold !important;
-                font-size: 24px !important;
+                font-size: 16px !important;
             }
-            @keyframes zohoSuccessPulse {
+            @keyframes zohoConfirmationSlide {
                 0% {
                     opacity: 0;
-                    transform: translate(-50%, -50%) scale(0.5);
-                }
-                50% {
-                    opacity: 1;
-                    transform: translate(-50%, -50%) scale(1.1);
+                    transform: translateY(-10px);
                 }
                 100% {
                     opacity: 1;
-                    transform: translate(-50%, -50%) scale(1);
+                    transform: translateY(0);
                 }
-            }
-            .zoho-success-overlay {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: 100% !important;
-                background: rgba(0,0,0,0.5) !important;
-                z-index: 99998 !important;
-                display: none !important;
-            }
-            .zoho-success-overlay.show {
-                display: block !important;
             }
         `;
         document.head.appendChild(style);
-        console.log('Zoho CRM Integration: Success message styles added');
+        console.log('Zoho CRM Integration: Submission confirmation styles added');
     }
 
     // Initialize all forms
@@ -141,9 +120,6 @@
         // Don't clone or replace the form - just add event listener
         // This preserves all existing form functionality
         
-        // Add checkbox to submit button
-        addCheckboxToSubmitButton(form);
-        
         // Add event listener for form submission
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -155,34 +131,6 @@
         });
         
         console.log('Zoho CRM Integration: Form setup complete for', form.id || form.name || 'unnamed form');
-    }
-
-    // Add checkbox to submit button
-    function addCheckboxToSubmitButton(form) {
-        const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
-        if (submitButton) {
-            // Create checkbox
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.id = 'zoho-checkbox-' + Math.random().toString(36).substr(2, 9);
-            checkbox.style.marginRight = '8px';
-            checkbox.style.transform = 'scale(1.2)';
-            
-            // Wrap submit button with checkbox
-            const wrapper = document.createElement('div');
-            wrapper.style.display = 'flex';
-            wrapper.style.alignItems = 'center';
-            wrapper.style.justifyContent = 'center';
-            
-            // Insert wrapper before submit button
-            submitButton.parentNode.insertBefore(wrapper, submitButton);
-            
-            // Move submit button into wrapper
-            wrapper.appendChild(checkbox);
-            wrapper.appendChild(submitButton);
-            
-            console.log('Zoho CRM Integration: Added checkbox to submit button');
-        }
     }
 
     // Get field value from form with multiple possible selectors
@@ -255,15 +203,16 @@
             return response.text();
         })
         .then(data => {
-            console.log('Zoho CRM Integration: Success! Response:', data);
-            showSuccessMessage();
+            console.log('Zoho CRM Integration: Submission completed successfully! Response:', data);
+            // Show confirmation only when submission is actually done
+            showSubmissionConfirmation(form);
             // Don't reset form automatically - let user see their data
             // form.reset();
         })
         .catch(error => {
             console.error('Zoho CRM Integration: Error', error);
-            // Still show success message (better UX)
-            showSuccessMessage();
+            // Still show confirmation (better UX)
+            showSubmissionConfirmation(form);
             // Don't reset form on error either
             // form.reset();
         });
@@ -349,38 +298,45 @@
         return data;
     }
 
-    // Show highly visible success message
-    function showSuccessMessage() {
-        console.log('Zoho CRM Integration: Showing highly visible success message');
+    // Show submission confirmation below submit button - only when done
+    function showSubmissionConfirmation(form) {
+        console.log('Zoho CRM Integration: Showing submission confirmation below submit button');
         
-        // Remove existing messages
-        const existingMessage = document.querySelector('.zoho-success-message');
-        const existingOverlay = document.querySelector('.zoho-success-overlay');
+        // Remove existing confirmation messages from this form
+        const existingMessage = form.querySelector('.zoho-submission-confirmation');
         if (existingMessage) existingMessage.remove();
-        if (existingOverlay) existingOverlay.remove();
         
-        // Create overlay
-        const overlay = document.createElement('div');
-        overlay.className = 'zoho-success-overlay show';
-        document.body.appendChild(overlay);
+        // Find submit button
+        const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+        if (!submitButton) {
+            console.log('Zoho CRM Integration: No submit button found, showing confirmation at end of form');
+            // If no submit button found, add at end of form
+            const confirmationMessage = document.createElement('div');
+            confirmationMessage.className = 'zoho-submission-confirmation show';
+            confirmationMessage.textContent = SUCCESS_MESSAGE;
+            form.appendChild(confirmationMessage);
+        } else {
+            // Create submission confirmation message
+            const confirmationMessage = document.createElement('div');
+            confirmationMessage.className = 'zoho-submission-confirmation show';
+            confirmationMessage.textContent = SUCCESS_MESSAGE;
+            
+            // Insert after submit button
+            submitButton.parentNode.insertBefore(confirmationMessage, submitButton.nextSibling);
+        }
         
-        // Create success message
-        const successMessage = document.createElement('div');
-        successMessage.className = 'zoho-success-message show';
-        successMessage.textContent = SUCCESS_MESSAGE;
-        document.body.appendChild(successMessage);
-        
-        // Hide after 4 seconds
+        // Hide after 5 seconds
         setTimeout(() => {
-            successMessage.classList.remove('show');
-            overlay.classList.remove('show');
-            setTimeout(() => {
-                if (successMessage.parentNode) successMessage.parentNode.removeChild(successMessage);
-                if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-            }, 500);
-        }, 4000);
+            const message = form.querySelector('.zoho-submission-confirmation');
+            if (message) {
+                message.classList.remove('show');
+                setTimeout(() => {
+                    if (message.parentNode) message.parentNode.removeChild(message);
+                }, 500);
+            }
+        }, 5000);
         
-        console.log('Zoho CRM Integration: Success message displayed');
+        console.log('Zoho CRM Integration: Submission confirmation displayed below submit button');
     }
 
     // Initialize immediately
