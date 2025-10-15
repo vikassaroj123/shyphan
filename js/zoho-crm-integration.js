@@ -141,6 +141,9 @@
         // Don't clone or replace the form - just add event listener
         // This preserves all existing form functionality
         
+        // Add checkbox to submit button
+        addCheckboxToSubmitButton(form);
+        
         // Add event listener for form submission
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -152,6 +155,34 @@
         });
         
         console.log('Zoho CRM Integration: Form setup complete for', form.id || form.name || 'unnamed form');
+    }
+
+    // Add checkbox to submit button
+    function addCheckboxToSubmitButton(form) {
+        const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+        if (submitButton) {
+            // Create checkbox
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = 'zoho-checkbox-' + Math.random().toString(36).substr(2, 9);
+            checkbox.style.marginRight = '8px';
+            checkbox.style.transform = 'scale(1.2)';
+            
+            // Wrap submit button with checkbox
+            const wrapper = document.createElement('div');
+            wrapper.style.display = 'flex';
+            wrapper.style.alignItems = 'center';
+            wrapper.style.justifyContent = 'center';
+            
+            // Insert wrapper before submit button
+            submitButton.parentNode.insertBefore(wrapper, submitButton);
+            
+            // Move submit button into wrapper
+            wrapper.appendChild(checkbox);
+            wrapper.appendChild(submitButton);
+            
+            console.log('Zoho CRM Integration: Added checkbox to submit button');
+        }
     }
 
     // Get field value from form with multiple possible selectors
