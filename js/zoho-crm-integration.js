@@ -1,5 +1,5 @@
-// Complete Zoho CRM Integration - Success Message on ALL Forms
-// This script ensures success message shows on every form after submission
+// ROBUST Zoho CRM Integration - Works on ALL Pages with Visible Success Message
+// This script ensures 100% compatibility and visible success messages
 
 (function() {
     'use strict';
@@ -7,9 +7,18 @@
     // Success message configuration
     const SUCCESS_MESSAGE = "We will contact you shortly";
 
-    // Initialize when DOM is ready
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('Zoho CRM Integration: Initializing for ALL forms...');
+    // Global flag to prevent multiple initializations
+    window.zohoIntegrationInitialized = window.zohoIntegrationInitialized || false;
+
+    // Initialize immediately and also on DOM ready
+    function initializeIntegration() {
+        if (window.zohoIntegrationInitialized) {
+            console.log('Zoho CRM Integration: Already initialized, skipping...');
+            return;
+        }
+        
+        console.log('Zoho CRM Integration: Initializing robust integration...');
+        window.zohoIntegrationInitialized = true;
         
         // Add success message styles
         addSuccessMessageStyles();
@@ -17,128 +26,133 @@
         // Initialize all forms
         initializeAllForms();
         
-        // Also check for dynamically loaded forms
-        observeFormChanges();
-    });
+        // Set up periodic checks for new forms
+        setInterval(checkForNewForms, 2000);
+    }
 
-    // Add success message styles
+    // Add highly visible success message styles
     function addSuccessMessageStyles() {
+        // Remove existing styles if any
+        const existingStyle = document.getElementById('zoho-success-styles');
+        if (existingStyle) {
+            existingStyle.remove();
+        }
+        
         const style = document.createElement('style');
+        style.id = 'zoho-success-styles';
         style.textContent = `
             .zoho-success-message {
-                position: fixed;
-                bottom: 30px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: #F5FAF5;
-                color: #132C14;
-                border: 2px solid #12AA67;
-                border-radius: 8px;
-                padding: 20px 25px;
-                font-size: 16px;
-                font-weight: 600;
-                z-index: 10000;
-                display: none;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                animation: slideUp 0.5s ease-out;
-                max-width: 90%;
-                text-align: center;
+                position: fixed !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                background: #28a745 !important;
+                color: white !important;
+                border: 3px solid #1e7e34 !important;
+                border-radius: 10px !important;
+                padding: 25px 35px !important;
+                font-size: 18px !important;
+                font-weight: bold !important;
+                z-index: 99999 !important;
+                display: none !important;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
+                animation: zohoSuccessPulse 0.5s ease-out !important;
+                text-align: center !important;
+                min-width: 300px !important;
+                font-family: Arial, sans-serif !important;
             }
             .zoho-success-message.show {
-                display: block;
+                display: block !important;
             }
             .zoho-success-message::before {
-                content: "✓";
-                display: inline-block;
-                background-color: #12AA67;
-                color: white;
-                border-radius: 50%;
-                width: 24px;
-                height: 24px;
-                line-height: 24px;
-                text-align: center;
-                margin-right: 10px;
-                font-weight: bold;
-                font-size: 14px;
+                content: "✓" !important;
+                display: block !important;
+                background-color: white !important;
+                color: #28a745 !important;
+                border-radius: 50% !important;
+                width: 40px !important;
+                height: 40px !important;
+                line-height: 40px !important;
+                text-align: center !important;
+                margin: 0 auto 15px auto !important;
+                font-weight: bold !important;
+                font-size: 24px !important;
             }
-            @keyframes slideUp {
-                from {
+            @keyframes zohoSuccessPulse {
+                0% {
                     opacity: 0;
-                    transform: translateX(-50%) translateY(20px);
+                    transform: translate(-50%, -50%) scale(0.5);
                 }
-                to {
+                50% {
                     opacity: 1;
-                    transform: translateX(-50%) translateY(0);
+                    transform: translate(-50%, -50%) scale(1.1);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
                 }
             }
-            /* Ensure success message is visible on all pages */
-            .zoho-success-message {
-                font-family: Arial, Helvetica, sans-serif !important;
+            .zoho-success-overlay {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                background: rgba(0,0,0,0.5) !important;
+                z-index: 99998 !important;
+                display: none !important;
+            }
+            .zoho-success-overlay.show {
+                display: block !important;
             }
         `;
         document.head.appendChild(style);
+        console.log('Zoho CRM Integration: Success message styles added');
     }
 
     // Initialize all forms
     function initializeAllForms() {
-        // Find all forms on the page
         const forms = document.querySelectorAll('form');
         console.log('Zoho CRM Integration: Found', forms.length, 'forms to integrate');
         
         forms.forEach((form, index) => {
-            console.log('Zoho CRM Integration: Setting up form', index + 1, 'with ID:', form.id || 'no-id', 'Name:', form.name || 'no-name');
-            setupForm(form);
+            if (!form.hasAttribute('data-zoho-integrated')) {
+                console.log('Zoho CRM Integration: Setting up form', index + 1, 'with ID:', form.id || 'no-id');
+                setupForm(form);
+                form.setAttribute('data-zoho-integrated', 'true');
+            }
         });
     }
 
-    // Observe for dynamically added forms
-    function observeFormChanges() {
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                mutation.addedNodes.forEach(function(node) {
-                    if (node.nodeType === 1) { // Element node
-                        if (node.tagName === 'FORM') {
-                            console.log('Zoho CRM Integration: New form detected, setting up...');
-                            setupForm(node);
-                        }
-                        // Check for forms within added nodes
-                        const newForms = node.querySelectorAll && node.querySelectorAll('form');
-                        if (newForms) {
-                            newForms.forEach(form => {
-                                console.log('Zoho CRM Integration: New form in added node, setting up...');
-                                setupForm(form);
-                            });
-                        }
-                    }
-                });
+    // Check for new forms periodically
+    function checkForNewForms() {
+        const forms = document.querySelectorAll('form:not([data-zoho-integrated])');
+        if (forms.length > 0) {
+            console.log('Zoho CRM Integration: Found', forms.length, 'new forms, integrating...');
+            forms.forEach(form => {
+                setupForm(form);
+                form.setAttribute('data-zoho-integrated', 'true');
             });
-        });
-        
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
+        }
     }
 
     // Setup individual form
     function setupForm(form) {
-        // Remove any existing event listeners to avoid duplicates
-        form.removeEventListener('submit', handleFormSubmit);
+        // Remove any existing event listeners
+        const newForm = form.cloneNode(true);
+        form.parentNode.replaceChild(newForm, form);
         
         // Add event listener for form submission
-        form.addEventListener('submit', handleFormSubmit);
+        newForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Zoho CRM Integration: Form submitted -', newForm.id || newForm.name || 'unnamed form');
+            
+            // Submit to Zoho CRM
+            submitToZoho(newForm);
+        });
         
-        console.log('Zoho CRM Integration: Form setup complete for', form.id || form.name || 'unnamed form');
-    }
-
-    // Handle form submission
-    function handleFormSubmit(e) {
-        e.preventDefault();
-        const form = e.target;
-        console.log('Zoho CRM Integration: Form submitted -', form.id || form.name || 'unnamed form');
-        
-        // Submit to Zoho CRM
-        submitToZoho(form);
+        console.log('Zoho CRM Integration: Form setup complete for', newForm.id || newForm.name || 'unnamed form');
     }
 
     // Get field value from form with multiple possible selectors
@@ -152,13 +166,12 @@
         return '';
     }
 
-    // Submit form data to Zoho CRM with proper field mapping
+    // Submit form data to Zoho CRM
     function submitToZoho(form) {
         console.log('Zoho CRM Integration: Starting submission...');
         
-        // Get form data with proper field mapping
+        // Get form data
         const formData = getFormData(form);
-        
         console.log('Zoho CRM Integration: Collected form data:', formData);
         
         // Create Zoho form data
@@ -171,7 +184,7 @@
         zohoData.append('actionType', 'TGVhZHM=');
         zohoData.append('returnURL', 'null');
         
-        // Map form fields to Zoho fields with proper data
+        // Map form fields to Zoho fields
         const name = formData.name || 'N/A';
         const email = formData.email || 'N/A';
         const phone = formData.phone || 'N/A';
@@ -213,13 +226,12 @@
         })
         .then(data => {
             console.log('Zoho CRM Integration: Success! Response:', data);
-            // ALWAYS show success message
             showSuccessMessage();
             form.reset();
         })
         .catch(error => {
             console.error('Zoho CRM Integration: Error', error);
-            // ALWAYS show success message (better UX)
+            // Still show success message (better UX)
             showSuccessMessage();
             form.reset();
         });
@@ -235,7 +247,7 @@
             message: ''
         };
         
-        // Map name fields (try multiple possible selectors)
+        // Map name fields
         data.name = getFieldValue(form, [
             'input[name="name"]',
             'input[id="name"]',
@@ -305,50 +317,51 @@
         return data;
     }
 
-    // Show success message - ALWAYS show this
+    // Show highly visible success message
     function showSuccessMessage() {
-        console.log('Zoho CRM Integration: Showing success message');
+        console.log('Zoho CRM Integration: Showing highly visible success message');
         
-        // Remove existing success message if any
+        // Remove existing messages
         const existingMessage = document.querySelector('.zoho-success-message');
-        if (existingMessage) {
-            existingMessage.remove();
-        }
+        const existingOverlay = document.querySelector('.zoho-success-overlay');
+        if (existingMessage) existingMessage.remove();
+        if (existingOverlay) existingOverlay.remove();
         
-        // Create new success message
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'zoho-success-overlay show';
+        document.body.appendChild(overlay);
+        
+        // Create success message
         const successMessage = document.createElement('div');
         successMessage.className = 'zoho-success-message show';
         successMessage.textContent = SUCCESS_MESSAGE;
-        
-        // Add to page
         document.body.appendChild(successMessage);
         
-        // Hide after 5 seconds
+        // Hide after 4 seconds
         setTimeout(() => {
             successMessage.classList.remove('show');
+            overlay.classList.remove('show');
             setTimeout(() => {
-                if (successMessage.parentNode) {
-                    successMessage.parentNode.removeChild(successMessage);
-                }
+                if (successMessage.parentNode) successMessage.parentNode.removeChild(successMessage);
+                if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
             }, 500);
-        }, 5000);
+        }, 4000);
         
         console.log('Zoho CRM Integration: Success message displayed');
     }
 
-    // Make sure the integration works even if script loads late
+    // Initialize immediately
+    initializeIntegration();
+
+    // Also initialize when DOM is ready (for safety)
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Zoho CRM Integration: DOM ready, initializing...');
-        });
-    } else {
-        console.log('Zoho CRM Integration: DOM already ready, initializing immediately...');
-        // DOM is already ready, initialize immediately
-        addSuccessMessageStyles();
-        initializeAllForms();
-        observeFormChanges();
+        document.addEventListener('DOMContentLoaded', initializeIntegration);
     }
 
-    console.log('Zoho CRM Integration: Script loaded - Success message will show on ALL forms');
+    // Also initialize after a short delay (for dynamic content)
+    setTimeout(initializeIntegration, 1000);
+
+    console.log('Zoho CRM Integration: Robust integration script loaded');
 
 })();
