@@ -1,5 +1,5 @@
-// Simple and Working Zoho CRM Integration
-// This script directly integrates with Zoho CRM using the exact form code provided
+// Complete Zoho CRM Integration - Success Message on ALL Forms
+// This script ensures success message shows on every form after submission
 
 (function() {
     'use strict';
@@ -9,13 +9,16 @@
 
     // Initialize when DOM is ready
     document.addEventListener('DOMContentLoaded', function() {
-        console.log('Zoho CRM Integration: Initializing...');
+        console.log('Zoho CRM Integration: Initializing for ALL forms...');
         
         // Add success message styles
         addSuccessMessageStyles();
         
         // Initialize all forms
         initializeAllForms();
+        
+        // Also check for dynamically loaded forms
+        observeFormChanges();
     });
 
     // Add success message styles
@@ -38,6 +41,8 @@
                 display: none;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.15);
                 animation: slideUp 0.5s ease-out;
+                max-width: 90%;
+                text-align: center;
             }
             .zoho-success-message.show {
                 display: block;
@@ -66,40 +71,95 @@
                     transform: translateX(-50%) translateY(0);
                 }
             }
+            /* Ensure success message is visible on all pages */
+            .zoho-success-message {
+                font-family: Arial, Helvetica, sans-serif !important;
+            }
         `;
         document.head.appendChild(style);
     }
 
     // Initialize all forms
     function initializeAllForms() {
-        // Find all forms
+        // Find all forms on the page
         const forms = document.querySelectorAll('form');
-        console.log('Zoho CRM Integration: Found', forms.length, 'forms');
+        console.log('Zoho CRM Integration: Found', forms.length, 'forms to integrate');
         
         forms.forEach((form, index) => {
-            console.log('Zoho CRM Integration: Setting up form', index + 1);
+            console.log('Zoho CRM Integration: Setting up form', index + 1, 'with ID:', form.id || 'no-id', 'Name:', form.name || 'no-name');
             setupForm(form);
+        });
+    }
+
+    // Observe for dynamically added forms
+    function observeFormChanges() {
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1) { // Element node
+                        if (node.tagName === 'FORM') {
+                            console.log('Zoho CRM Integration: New form detected, setting up...');
+                            setupForm(node);
+                        }
+                        // Check for forms within added nodes
+                        const newForms = node.querySelectorAll && node.querySelectorAll('form');
+                        if (newForms) {
+                            newForms.forEach(form => {
+                                console.log('Zoho CRM Integration: New form in added node, setting up...');
+                                setupForm(form);
+                            });
+                        }
+                    }
+                });
+            });
+        });
+        
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
         });
     }
 
     // Setup individual form
     function setupForm(form) {
+        // Remove any existing event listeners to avoid duplicates
+        form.removeEventListener('submit', handleFormSubmit);
+        
         // Add event listener for form submission
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            console.log('Zoho CRM Integration: Form submitted');
-            
-            // Submit to Zoho CRM
-            submitToZoho(form);
-        });
+        form.addEventListener('submit', handleFormSubmit);
+        
+        console.log('Zoho CRM Integration: Form setup complete for', form.id || form.name || 'unnamed form');
     }
 
-    // Submit form data to Zoho CRM
-    function submitToZoho(form) {
-        console.log('Zoho CRM Integration: Submitting to Zoho...');
+    // Handle form submission
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        console.log('Zoho CRM Integration: Form submitted -', form.id || form.name || 'unnamed form');
         
-        // Get form data
-        const formData = new FormData(form);
+        // Submit to Zoho CRM
+        submitToZoho(form);
+    }
+
+    // Get field value from form with multiple possible selectors
+    function getFieldValue(form, selectors) {
+        for (let selector of selectors) {
+            const element = form.querySelector(selector);
+            if (element && element.value && element.value.trim()) {
+                return element.value.trim();
+            }
+        }
+        return '';
+    }
+
+    // Submit form data to Zoho CRM with proper field mapping
+    function submitToZoho(form) {
+        console.log('Zoho CRM Integration: Starting submission...');
+        
+        // Get form data with proper field mapping
+        const formData = getFormData(form);
+        
+        console.log('Zoho CRM Integration: Collected form data:', formData);
         
         // Create Zoho form data
         const zohoData = new FormData();
@@ -111,35 +171,35 @@
         zohoData.append('actionType', 'TGVhZHM=');
         zohoData.append('returnURL', 'null');
         
-        // Map form fields to Zoho fields
-        const name = formData.get('name') || form.querySelector('[name="name"]')?.value || form.querySelector('#fullName_sidebar')?.value || '';
-        const email = formData.get('email') || form.querySelector('[name="Email"]')?.value || form.querySelector('[name="email"]')?.value || '';
-        const phone = formData.get('phone') || form.querySelector('[name="Phone"]')?.value || form.querySelector('[name="mobile"]')?.value || '';
-        const company = formData.get('company') || form.querySelector('[name="Company"]')?.value || '';
-        const message = formData.get('message') || form.querySelector('[name="message"]')?.value || form.querySelector('#message')?.value || '';
+        // Map form fields to Zoho fields with proper data
+        const name = formData.name || 'N/A';
+        const email = formData.email || 'N/A';
+        const phone = formData.phone || 'N/A';
+        const company = formData.company || 'N/A';
+        const message = formData.message || '';
         
         // Split name into first and last name
         const nameParts = name.split(' ');
-        const firstName = nameParts[0] || '';
-        const lastName = nameParts.slice(1).join(' ') || '';
+        const firstName = nameParts[0] || 'N/A';
+        const lastName = nameParts.slice(1).join(' ') || 'N/A';
         
         // Add mapped fields to Zoho data
         zohoData.append('First Name', firstName);
-        zohoData.append('Last Name', lastName || 'N/A');
-        zohoData.append('Company', company || 'N/A');
-        zohoData.append('Email', email || 'N/A');
-        zohoData.append('Phone', phone || 'N/A');
-        zohoData.append('Description', message || '');
+        zohoData.append('Last Name', lastName);
+        zohoData.append('Company', company);
+        zohoData.append('Email', email);
+        zohoData.append('Phone', phone);
+        zohoData.append('Description', message);
         zohoData.append('Lead Source', 'Website');
         zohoData.append('Lead Status', 'Not Contacted');
         
-        console.log('Zoho CRM Integration: Sending data:', {
-            firstName,
-            lastName,
-            company,
-            email,
-            phone,
-            message
+        console.log('Zoho CRM Integration: Sending to Zoho:', {
+            'First Name': firstName,
+            'Last Name': lastName,
+            'Company': company,
+            'Email': email,
+            'Phone': phone,
+            'Description': message
         });
         
         // Submit to Zoho CRM
@@ -152,19 +212,100 @@
             return response.text();
         })
         .then(data => {
-            console.log('Zoho CRM Integration: Success!', data);
+            console.log('Zoho CRM Integration: Success! Response:', data);
+            // ALWAYS show success message
             showSuccessMessage();
             form.reset();
         })
         .catch(error => {
             console.error('Zoho CRM Integration: Error', error);
-            // Still show success message to user (better UX)
+            // ALWAYS show success message (better UX)
             showSuccessMessage();
             form.reset();
         });
     }
 
-    // Show success message
+    // Get form data with comprehensive field mapping
+    function getFormData(form) {
+        const data = {
+            name: '',
+            email: '',
+            phone: '',
+            company: '',
+            message: ''
+        };
+        
+        // Map name fields (try multiple possible selectors)
+        data.name = getFieldValue(form, [
+            'input[name="name"]',
+            'input[id="name"]',
+            'input[id="fullName_sidebar"]',
+            'input[placeholder*="name" i]',
+            'input[placeholder*="Name" i]',
+            'input[placeholder*="Full Name" i]'
+        ]);
+        
+        // Map email fields
+        data.email = getFieldValue(form, [
+            'input[name="Email"]',
+            'input[name="email"]',
+            'input[id="email"]',
+            'input[type="email"]',
+            'input[placeholder*="email" i]',
+            'input[placeholder*="Email" i]'
+        ]);
+        
+        // Map phone fields
+        data.phone = getFieldValue(form, [
+            'input[name="Phone"]',
+            'input[name="phone"]',
+            'input[name="mobile"]',
+            'input[id="phone"]',
+            'input[id="mobile"]',
+            'input[type="tel"]',
+            'input[type="number"]',
+            'input[placeholder*="phone" i]',
+            'input[placeholder*="mobile" i]',
+            'input[placeholder*="contact" i]',
+            'input[placeholder*="Phone" i]',
+            'input[placeholder*="Mobile" i]',
+            'input[placeholder*="Contact" i]'
+        ]);
+        
+        // Map company fields
+        data.company = getFieldValue(form, [
+            'input[name="Company"]',
+            'input[name="company"]',
+            'input[id="company"]',
+            'input[placeholder*="company" i]',
+            'input[placeholder*="Company" i]'
+        ]);
+        
+        // Map message fields
+        data.message = getFieldValue(form, [
+            'textarea[name="message"]',
+            'textarea[id="message"]',
+            'textarea[placeholder*="message" i]',
+            'textarea[placeholder*="Message" i]',
+            'input[name="subject"]',
+            'input[id="subject"]'
+        ]);
+        
+        // If no message found, try to get subject
+        if (!data.message) {
+            data.message = getFieldValue(form, [
+                'input[name="subject"]',
+                'input[id="subject"]',
+                'input[placeholder*="subject" i]',
+                'input[placeholder*="Subject" i]'
+            ]);
+        }
+        
+        console.log('Zoho CRM Integration: Mapped form data:', data);
+        return data;
+    }
+
+    // Show success message - ALWAYS show this
     function showSuccessMessage() {
         console.log('Zoho CRM Integration: Showing success message');
         
@@ -191,8 +332,23 @@
                 }
             }, 500);
         }, 5000);
+        
+        console.log('Zoho CRM Integration: Success message displayed');
     }
 
-    console.log('Zoho CRM Integration: Script loaded successfully');
+    // Make sure the integration works even if script loads late
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Zoho CRM Integration: DOM ready, initializing...');
+        });
+    } else {
+        console.log('Zoho CRM Integration: DOM already ready, initializing immediately...');
+        // DOM is already ready, initialize immediately
+        addSuccessMessageStyles();
+        initializeAllForms();
+        observeFormChanges();
+    }
+
+    console.log('Zoho CRM Integration: Script loaded - Success message will show on ALL forms');
 
 })();

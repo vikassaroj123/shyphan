@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test ALL Forms - Success Message Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        input:focus, textarea:focus {
+            border-color: #0279FF;
+            outline: none;
+        }
+        button {
+            background: #0279FF;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 5px;
+        }
+        button:hover {
+            background: #006be4;
+        }
+        .console-output {
+            background: #000;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            height: 200px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            margin-top: 10px;
+        }
+        .success-indicator {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border: 1px solid #c3e6cb;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .test-instructions {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #0279FF;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test ALL Forms - Success Message Verification</h1>
+    
+    <div class="test-instructions">
+        <h3>Test Instructions</h3>
+        <ol>
+            <li><strong>Submit each form below</strong> - All forms should show success message</li>
+            <li><strong>Look for green checkmark</strong> - Success message appears at bottom of page</li>
+            <li><strong>Check console logs</strong> - Open browser console (F12) to see detailed logs</li>
+            <li><strong>Verify message shows</strong> - Success message should appear for 5 seconds</li>
+        </ol>
+    </div>
+    
+    <div class="form-grid">
+        <!-- Form 1: Index Sidebar Style -->
+        <div class="test-section">
+            <h3>Form 1: Index Sidebar</h3>
+            <form id="sidebarForm">
+                <div class="form-group">
+                    <input type="text" id="fullName_sidebar" placeholder="Enter name" value="John Doe">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="Email" placeholder="Enter email" value="john@example.com">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Phone" placeholder="Enter mobile" value="1234567890">
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="3" placeholder="Enter your message">Test message from sidebar form</textarea>
+                </div>
+                <button type="submit">Submit Sidebar Form</button>
+            </form>
+        </div>
+        
+        <!-- Form 2: Get Quote Style -->
+        <div class="test-section">
+            <h3>Form 2: Get Quote</h3>
+            <form id="quoteForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Enter name" value="Jane Smith">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Enter email" value="jane@example.com">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="company" placeholder="Enter company name" value="Test Company">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="mobile" placeholder="Enter mobile" value="9876543210">
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="3" placeholder="Enter your message">Test message from quote form</textarea>
+                </div>
+                <button type="submit">Submit Quote Form</button>
+            </form>
+        </div>
+        
+        <!-- Form 3: FAQ Modal Style -->
+        <div class="test-section">
+            <h3>Form 3: FAQ Modal</h3>
+            <form id="faqForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Full Name" value="Bob Johnson">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email Address" value="bob@example.com">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="company" placeholder="Company Name" value="FAQ Test Company">
+                </div>
+                <div class="form-group">
+                    <input type="number" name="phone" placeholder="Contact Number" value="5555555555">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="subject" placeholder="Subject" value="Test Subject">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="3" placeholder="Message">Test message from FAQ form</textarea>
+                </div>
+                <button type="submit">Submit FAQ Form</button>
+            </form>
+        </div>
+        
+        <!-- Form 4: Generic Contact -->
+        <div class="test-section">
+            <h3>Form 4: Generic Contact</h3>
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" value="Alice Brown">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" value="alice@example.com">
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Your Phone" value="1112223333">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="company" placeholder="Your Company" value="Generic Test Company">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="3" placeholder="Your Message">Test message from generic contact form</textarea>
+                </div>
+                <button type="submit">Submit Contact Form</button>
+            </form>
+        </div>
+        
+        <!-- Form 5: Minimal Form -->
+        <div class="test-section">
+            <h3>Form 5: Minimal Form</h3>
+            <form id="minimalForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Name" value="Minimal User">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" value="minimal@example.com">
+                </div>
+                <button type="submit">Submit Minimal Form</button>
+            </form>
+        </div>
+        
+        <!-- Form 6: Different Field Names -->
+        <div class="test-section">
+            <h3>Form 6: Different Names</h3>
+            <form id="differentForm">
+                <div class="form-group">
+                    <input type="text" name="full_name" placeholder="Full Name" value="Different User">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email_address" placeholder="Email Address" value="different@example.com">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="phone_number" placeholder="Phone Number" value="9998887777">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="company_name" placeholder="Company Name" value="Different Company">
+                </div>
+                <div class="form-group">
+                    <textarea name="user_message" rows="3" placeholder="Your Message">Test message from different field names form</textarea>
+                </div>
+                <button type="submit">Submit Different Form</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Success Message Test Results</h3>
+        <div id="test-results">
+            <p>Submit forms above to see test results...</p>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Console Output</h3>
+        <div id="console-output" class="console-output"></div>
+        <button onclick="clearConsole()">Clear Console</button>
+    </div>
+    
+    <!-- Load the integration script -->
+    <script src="js/zoho-crm-integration.js"></script>
+    
+    <script>
+        let consoleOutput = document.getElementById('console-output');
+        let testResults = document.getElementById('test-results');
+        let formTestCount = 0;
+        let successCount = 0;
+        
+        // Override console methods to show in page
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        
+        function addToConsole(message, type = 'log') {
+            const timestamp = new Date().toLocaleTimeString();
+            const prefix = type === 'error' ? '❌' : type === 'warn' ? '⚠️' : '✅';
+            consoleOutput.textContent += `[${timestamp}] ${prefix} ${message}\n`;
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addToConsole(args.join(' '), 'log');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addToConsole(args.join(' '), 'error');
+        };
+        
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            addToConsole(args.join(' '), 'warn');
+        };
+        
+        function clearConsole() {
+            consoleOutput.textContent = '';
+        }
+        
+        // Track form submissions
+        function trackFormSubmission(formId) {
+            formTestCount++;
+            console.log(`Form ${formId} submitted (${formTestCount}/6)`);
+            
+            // Check if success message appears
+            setTimeout(() => {
+                const successMessage = document.querySelector('.zoho-success-message');
+                if (successMessage && successMessage.classList.contains('show')) {
+                    successCount++;
+                    console.log(`✅ Success message appeared for ${formId} (${successCount}/${formTestCount})`);
+                    updateTestResults();
+                } else {
+                    console.log(`❌ Success message did not appear for ${formId}`);
+                    updateTestResults();
+                }
+            }, 1000);
+        }
+        
+        function updateTestResults() {
+            const percentage = Math.round((successCount / formTestCount) * 100);
+            testResults.innerHTML = `
+                <div class="success-indicator">
+                    <strong>Test Results:</strong><br>
+                    Forms Tested: ${formTestCount}/6<br>
+                    Success Messages Shown: ${successCount}/${formTestCount}<br>
+                    Success Rate: ${percentage}%
+                </div>
+            `;
+        }
+        
+        // Add event listeners to all forms
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Test page loaded - All forms should show success messages');
+            
+            // Add tracking to all forms
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function() {
+                    trackFormSubmission(form.id || 'unnamed');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
