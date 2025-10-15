@@ -414,7 +414,7 @@
                         <input type="hidden" name="user_agent" id="user_agent_modal">
                         <input type="hidden" name="timezone" id="timezone_modal">
 
-                        <div id="leadStatus" style="margin-top:12px; text-align:center;"></div>
+                        
                         <div class="cta-row">
                             <button type="submit" id="launchSubmit" class="cta-btn">Book Now</button>
                         </div>
@@ -997,33 +997,23 @@
                     <div class="row">
                         <div class="form-group col-sm-12">
                             <input class="rt-input form-control" type="text" id="fullName_sidebar"
-                                placeholder="Enter name" required>
+                                placeholder="Enter name">
                         </div>
                         <div class="form-group col-sm-12">
                             <input class="rt-input form-control" type="email" name="Email" placeholder="Enter email"
-                                maxlength="100" required>
+                                maxlength="100">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="form-group col-sm-12">
                             <input class="rt-input form-control" type="text" name="Phone" placeholder="Enter mobile"
-                                maxlength="30" required>
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <!-- We'll copy this + message into Description on submit -->
-                            <select id="Dtype" class="rt-input form-control" required>
-                                <option value="">Select Requirement</option>
-                                <option value="Website Development">Website Development</option>
-                                <option value="Custom Design">Custom Design</option>
-                                <option value="Digital Marketing">Digital Marketing</option>
-                            </select>
+                                maxlength="30">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <textarea class="rt-input form-control" id="message" rows="5" placeholder="Enter your message"
-                            required></textarea>
+                        <textarea class="rt-input form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
                     </div>
 
                     <!-- Zoho mapped fields -->
@@ -1048,7 +1038,7 @@
                     <button type="submit" id="form-submit" class="btn lnk btn-main bg-btn">
                         Submit <span class="circle"></span>
                     </button>
-                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                    
                 </form>
 
                 <!-- hidden iframe catches Zoho redirect so page doesn't navigate -->

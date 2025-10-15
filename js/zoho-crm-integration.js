@@ -1,11 +1,13 @@
 // Zoho CRM Integration Script
-// This script handles form submission to Zoho CRM while preserving original form design
+// This script integrates existing forms with Zoho CRM using the exact form code provided
 
 (function() {
     'use strict';
 
-    // Zoho CRM form configuration
+    // Zoho CRM form configuration from provided code
     const ZOHO_CONFIG = {
+        formId: 'webform1030997000000474013',
+        formName: 'WebToLeads1030997000000474013',
         xnQsjsdp: '1e78b61536a7be73b2c659333297d5c743c0991289b9aff35626f4347811b3e0',
         xmIwtLD: '4cf1b705f9a26f9fcd52e1ede3164521538115cd57dea2f8cdef31f554583381e2b0da1e69d025f1f2b9a3ca72dae4e2',
         actionType: 'TGVhZHM=',
@@ -24,43 +26,90 @@
         initializeExistingForms();
     }
 
-    // Add success message styles
+    // Add success message styles (improved with better positioning and green tick)
     function addSuccessMessageStyles() {
         const style = document.createElement('style');
         style.textContent = `
-            .zoho-success-message {
-                background: #F5FAF5;
-                color: #132C14;
-                border: 1px solid #A9D3AB;
-                border-radius: 6px;
-                padding: 15px 20px;
-                margin: 20px 0;
-                display: none;
-                align-items: center;
-                box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
+            .wf_customMessageBox{
                 font-family: Arial, Helvetica, sans-serif;
-                font-weight: 500;
-            }
-            .zoho-success-message.show {
+                color: #132C14;
+                background: #F5FAF5;
+                box-shadow: 0 4px 12px 0 rgba(0,0,0,0.15);
+                max-width: 90%;
+                width: max-content;
+                word-break: break-word;
+                z-index: 11000;
+                border-radius: 8px;
+                border: 2px solid #12AA67;
+                min-width: 200px;
+                padding: 20px 25px;
                 display: flex;
+                align-items: center;
+                position: fixed;
+                bottom: 30px;
+                left: 50%;
+                transform: translate(-50%, 0);
+                animation: slideUp 0.5s ease-out;
             }
-            .zoho-success-icon {
+            .wf_customCircle{
+                position: relative;
                 background-color: #12AA67;
                 border-radius: 100%;
-                width: 20px;
-                height: 20px;
-                margin-right: 10px;
+                width: 24px;
+                height: 24px;
+                flex: none;
+                margin-right: 12px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                flex-shrink: 0;
             }
-            .zoho-success-checkmark {
-                width: 6px;
-                height: 10px;
-                border: solid #fff;
-                border-width: 0 2px 2px 0;
+            .wf_customCheckMark{
+                box-sizing: unset !important;
+                position: absolute;
                 transform: rotate(45deg);
+                left: 7px;
+                top: 3px;
+                height: 12px;
+                width: 6px;
+                border-bottom: 3px solid #fff;
+                border-right: 3px solid #fff;
+            }
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translate(-50%, 20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, 0);
+                }
+            }
+            .sidebar-thanks, #msgSubmit {
+                background: #F5FAF5 !important;
+                color: #132C14 !important;
+                border: 2px solid #12AA67 !important;
+                border-radius: 8px !important;
+                padding: 20px 25px !important;
+                margin: 20px 0 !important;
+                text-align: center !important;
+                font-weight: 600 !important;
+                font-size: 16px !important;
+                position: relative !important;
+                animation: slideUp 0.5s ease-out !important;
+            }
+            .sidebar-thanks.show::before, #msgSubmit.show::before {
+                content: "✓";
+                display: inline-block;
+                background-color: #12AA67;
+                color: white;
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
+                line-height: 24px;
+                text-align: center;
+                margin-right: 10px;
+                font-weight: bold;
+                font-size: 14px;
             }
         `;
         document.head.appendChild(style);
@@ -69,7 +118,7 @@
     // Initialize existing forms without changing their design
     function initializeExistingForms() {
         // Find all forms that need Zoho integration
-        const forms = document.querySelectorAll('form[id*="contact"], form[name*="contact"], form[id*="feedback"], form[name*="feedback"], form[id="contactForm"]');
+        const forms = document.querySelectorAll('form[id*="contact"], form[name*="contact"], form[id*="feedback"], form[name*="feedback"], form[id="contactForm"], form[id*="sidebar"], form[id*="webform"]');
         
         forms.forEach(form => {
             setupZohoForm(form);
@@ -78,18 +127,25 @@
 
     // Setup Zoho form functionality while preserving original design
     function setupZohoForm(form) {
-        // Add success message container after the form
-        const successMessage = document.createElement('div');
-        successMessage.className = 'zoho-success-message';
-        successMessage.innerHTML = `
-            <div class="zoho-success-icon">
-                <div class="zoho-success-checkmark"></div>
-            </div>
-            <span>${SUCCESS_MESSAGE}</span>
-        `;
+        // Check if there's already a success message container
+        let successMessage = form.parentNode.querySelector('#sidebar-thanks, #msgSubmit, #wf_splash');
         
-        // Insert success message after the form
-        form.parentNode.insertBefore(successMessage, form.nextSibling);
+        if (!successMessage) {
+            // Add success message container after the form
+            successMessage = document.createElement('div');
+            successMessage.className = 'wf_customMessageBox';
+            successMessage.id = 'wf_splash';
+            successMessage.style.display = 'none';
+            successMessage.innerHTML = `
+                <div class="wf_customCircle">
+                    <div class="wf_customCheckMark"></div>
+                </div>
+                <span id="wf_splash_info">${SUCCESS_MESSAGE}</span>
+            `;
+            
+            // Insert success message after the form
+            form.parentNode.insertBefore(successMessage, form.nextSibling);
+        }
         
         // Add hidden Zoho fields to the existing form
         addZohoHiddenFields(form);
@@ -104,12 +160,12 @@
         });
     }
 
-    // Add hidden Zoho fields to existing form
+    // Add hidden Zoho fields to existing form (from provided code)
     function addZohoHiddenFields(form) {
         // Zoho required hidden fields
         const hiddenFields = [
             { name: 'xnQsjsdp', value: ZOHO_CONFIG.xnQsjsdp },
-            { name: 'zc_gad', value: '', id: 'zc_gad_' + Math.random().toString(36).substr(2, 9) },
+            { name: 'zc_gad', value: '', id: 'zc_gad' },
             { name: 'xmIwtLD', value: ZOHO_CONFIG.xmIwtLD },
             { name: 'actionType', value: ZOHO_CONFIG.actionType },
             { name: 'returnURL', value: ZOHO_CONFIG.returnURL },
@@ -127,35 +183,25 @@
         });
     }
 
-    // Validate form
+    // Validate form (simplified - no required fields)
     function validateForm(form) {
-        const requiredFields = form.querySelectorAll('[required]');
-        let isValid = true;
-        
-        requiredFields.forEach(field => {
-            if (!field.value.trim()) {
-                field.style.borderColor = '#ff0000';
-                isValid = false;
-            } else {
-                field.style.borderColor = '';
-            }
-        });
-        
-        // Email validation
+        // Basic email validation if email field exists
         const emailField = form.querySelector('input[type="email"]');
         if (emailField && emailField.value) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(emailField.value)) {
                 emailField.style.borderColor = '#ff0000';
                 alert('Please enter a valid email address.');
-                isValid = false;
+                return false;
+            } else {
+                emailField.style.borderColor = '';
             }
         }
         
-        return isValid;
+        return true;
     }
 
-    // Submit form to Zoho
+    // Submit form to Zoho (using exact code from provided form)
     function submitToZoho(form, successMessage) {
         const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
         
@@ -173,18 +219,51 @@
         // Prepare form data
         const formData = new FormData(form);
         
-        // Submit via AJAX
+        // Submit via AJAX (using exact code from provided form)
         fetch('https://crm.zoho.in/crm/WebToLeadForm', {
             method: 'POST',
             body: formData
         })
         .then(response => response.text())
         .then(data => {
-            // Show success message
-            successMessage.classList.add('show');
+            // Show success message (using exact code from provided form)
+            const splashinfodom = document.getElementById('wf_splash_info');
+            if (splashinfodom) {
+                splashinfodom.innerText = SUCCESS_MESSAGE;
+            }
+            const splashdom = document.getElementById('wf_splash');
+            if (splashdom) {
+                splashdom.style.display = '';
+                setTimeout(function() {
+                    splashdom.style.display = 'none';
+                }, 5000);
+            }
             
-            // Scroll to success message
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Show success message in the form's success container
+            if (successMessage) {
+                // Check if it's the sidebar-thanks container
+                if (successMessage.id === 'sidebar-thanks') {
+                    successMessage.style.display = 'block';
+                    successMessage.textContent = SUCCESS_MESSAGE;
+                    successMessage.classList.add('show');
+                } else if (successMessage.id === 'msgSubmit') {
+                    successMessage.style.display = 'block';
+                    successMessage.textContent = SUCCESS_MESSAGE;
+                    successMessage.classList.add('show');
+                } else {
+                    // Custom success message
+                    const formSuccessMsg = successMessage.querySelector('#wf_splash_info');
+                    if (formSuccessMsg) {
+                        formSuccessMsg.innerText = SUCCESS_MESSAGE;
+                    }
+                    successMessage.style.display = '';
+                }
+                
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                    successMessage.classList.remove('show');
+                }, 5000);
+            }
             
             // Reset form
             form.reset();
