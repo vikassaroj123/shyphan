@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Working Forms - Complete Functionality</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus {
+            border-color: #0279FF;
+            outline: none;
+            box-shadow: 0 0 5px rgba(2, 121, 255, 0.3);
+        }
+        button {
+            background: #0279FF;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background: #006be4;
+        }
+        button:active {
+            background: #0056b3;
+        }
+        .console-output {
+            background: #000;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            height: 200px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            margin-top: 10px;
+        }
+        .success-indicator {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border: 1px solid #c3e6cb;
+        }
+        .test-instructions {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #0279FF;
+        }
+        .form-status {
+            background: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border: 1px solid #ffeaa7;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Working Forms - Complete Functionality</h1>
+    
+    <div class="test-instructions">
+        <h3>Test Instructions</h3>
+        <ol>
+            <li><strong>Fill out the form below</strong> - All fields should be editable</li>
+            <li><strong>Type in any field</strong> - Text should appear as you type</li>
+            <li><strong>Submit the form</strong> - Should show success message in center</li>
+            <li><strong>Check console logs</strong> - Open browser console (F12) to see detailed logs</li>
+        </ol>
+    </div>
+    
+    <div class="test-section">
+        <h3>Working Form Test</h3>
+        <div class="form-status" id="form-status">
+            Form Status: Ready to use - All fields should be fillable
+        </div>
+        <form id="workingForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" value="">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" value="">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" value="">
+            </div>
+            <div class="form-group">
+                <label for="company">Company Name:</label>
+                <input type="text" id="company" name="company" placeholder="Enter your company name" value="">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Enter your message"></textarea>
+            </div>
+            <button type="submit">Submit Form - Should Show Success Message</button>
+        </form>
+    </div>
+    
+    <div class="test-section">
+        <h3>Form Functionality Test</h3>
+        <div id="functionality-test">
+            <p>Test the following:</p>
+            <ul>
+                <li>✅ Can you type in the name field?</li>
+                <li>✅ Can you type in the email field?</li>
+                <li>✅ Can you type in the phone field?</li>
+                <li>✅ Can you type in the company field?</li>
+                <li>✅ Can you type in the message field?</li>
+                <li>✅ Does the submit button work?</li>
+                <li>✅ Does the success message appear?</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Integration Status</h3>
+        <div id="integration-status">
+            <p>Checking integration status...</p>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Console Output</h3>
+        <div id="console-output" class="console-output"></div>
+        <button onclick="clearConsole()">Clear Console</button>
+    </div>
+    
+    <!-- Load the integration script -->
+    <script src="js/zoho-crm-integration.js"></script>
+    
+    <script>
+        let consoleOutput = document.getElementById('console-output');
+        let integrationStatus = document.getElementById('integration-status');
+        let formStatus = document.getElementById('form-status');
+        
+        // Override console methods to show in page
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        
+        function addToConsole(message, type = 'log') {
+            const timestamp = new Date().toLocaleTimeString();
+            const prefix = type === 'error' ? '❌' : type === 'warn' ? '⚠️' : '✅';
+            consoleOutput.textContent += `[${timestamp}] ${prefix} ${message}\n`;
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addToConsole(args.join(' '), 'log');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addToConsole(args.join(' '), 'error');
+        };
+        
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            addToConsole(args.join(' '), 'warn');
+        };
+        
+        function clearConsole() {
+            consoleOutput.textContent = '';
+        }
+        
+        // Check integration status
+        function checkIntegrationStatus() {
+            const forms = document.querySelectorAll('form');
+            const integratedForms = document.querySelectorAll('form[data-zoho-integrated]');
+            
+            integrationStatus.innerHTML = `
+                <div class="success-indicator">
+                    <strong>Integration Status:</strong><br>
+                    Total Forms Found: ${forms.length}<br>
+                    Forms Integrated: ${integratedForms.length}<br>
+                    Integration Status: ${window.zohoIntegrationInitialized ? '✅ Active' : '❌ Not Active'}<br>
+                    Success Message Styles: ${document.getElementById('zoho-success-styles') ? '✅ Loaded' : '❌ Not Loaded'}
+                </div>
+            `;
+        }
+        
+        // Test form functionality
+        function testFormFunctionality() {
+            const nameField = document.getElementById('name');
+            const emailField = document.getElementById('email');
+            const phoneField = document.getElementById('phone');
+            const companyField = document.getElementById('company');
+            const messageField = document.getElementById('message');
+            
+            // Test if fields are editable
+            const fields = [
+                { field: nameField, name: 'Name' },
+                { field: emailField, name: 'Email' },
+                { field: phoneField, name: 'Phone' },
+                { field: companyField, name: 'Company' },
+                { field: messageField, name: 'Message' }
+            ];
+            
+            fields.forEach(({ field, name }) => {
+                if (field) {
+                    // Test if field is editable
+                    const testValue = 'Test ' + name;
+                    field.value = testValue;
+                    if (field.value === testValue) {
+                        field.value = ''; // Clear test value
+                        console.log(`✅ ${name} field is working properly`);
+                    } else {
+                        console.log(`❌ ${name} field is not working properly`);
+                    }
+                }
+            });
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Working forms test page loaded');
+            setTimeout(() => {
+                checkIntegrationStatus();
+                testFormFunctionality();
+            }, 1000);
+        });
+        
+        // Check status periodically
+        setInterval(checkIntegrationStatus, 3000);
+    </script>
+</body>
+</html>
