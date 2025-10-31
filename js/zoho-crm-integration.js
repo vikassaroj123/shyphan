@@ -10,6 +10,24 @@
     // Global flag to prevent multiple initializations
     window.zohoIntegrationInitialized = window.zohoIntegrationInitialized || false;
 
+    // Google Ads conversion tracking function
+    function gtag_report_conversion(url) {
+        var callback = function () {
+            if (typeof(url) != 'undefined') {
+                window.location = url;
+            }
+        };
+        if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17557804164/e4AmCMXulZsbEISpm7RB',
+                'value': 1.0,
+                'currency': 'INR',
+                'event_callback': callback
+            });
+        }
+        return false;
+    }
+
     // Initialize when DOM is ready
     function initializeIntegration() {
         if (window.zohoIntegrationInitialized) {
@@ -144,6 +162,41 @@
         return '';
     }
 
+    // Get page name from title or URL
+    function getPageName() {
+        // Try to get from document title
+        let pageName = '';
+        if (document.title) {
+            // Remove common suffixes like "- Shyphan", "| Shyphan", etc.
+            pageName = document.title
+                .replace(/\s*-\s*Shyphan.*$/i, '')
+                .replace(/\s*\|\s*Shyphan.*$/i, '')
+                .replace(/\s*Shyphan.*$/i, '')
+                .trim();
+        }
+        
+        // If no good title, try URL pathname
+        if (!pageName || pageName === 'Shyphan') {
+            const pathname = window.location.pathname;
+            if (pathname && pathname !== '/' && pathname !== '/index.html') {
+                // Extract filename without extension
+                const filename = pathname.split('/').pop().replace(/\.html?$/, '');
+                // Convert to readable format (replace hyphens with spaces, capitalize)
+                pageName = filename
+                    .split('-')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+            }
+        }
+        
+        // Fallback to "Home" for index page
+        if (!pageName || pageName === 'index' || pageName === '') {
+            pageName = 'Home';
+        }
+        
+        return pageName;
+    }
+
     // Submit form data to Zoho CRM
     function submitToZoho(form) {
         console.log('Zoho CRM Integration: Starting submission...');
@@ -174,6 +227,10 @@
         const firstName = nameParts[0] || 'N/A';
         const lastName = nameParts.slice(1).join(' ') || 'N/A';
         
+        // Get page name for Lead Source
+        const pageName = getPageName();
+        const leadSource = 'Website - ' + pageName;
+        
         // Add mapped fields to Zoho data
         zohoData.append('First Name', firstName);
         zohoData.append('Last Name', lastName);
@@ -181,7 +238,7 @@
         zohoData.append('Email', email);
         zohoData.append('Phone', phone);
         zohoData.append('Description', message);
-        zohoData.append('Lead Source', 'Website');
+        zohoData.append('Lead Source', leadSource);
         zohoData.append('Lead Status', 'Not Contacted');
         
         console.log('Zoho CRM Integration: Sending to Zoho:', {
@@ -190,7 +247,8 @@
             'Company': company,
             'Email': email,
             'Phone': phone,
-            'Description': message
+            'Description': message,
+            'Lead Source': leadSource
         });
         
         // Submit to Zoho CRM
@@ -204,6 +262,8 @@
         })
         .then(data => {
             console.log('Zoho CRM Integration: Submission completed successfully! Response:', data);
+            // Track conversion in Google Ads
+            gtag_report_conversion();
             // Show confirmation only when submission is actually done
             showSubmissionConfirmation(form);
             // Don't reset form automatically - let user see their data
