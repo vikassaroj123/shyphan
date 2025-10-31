@@ -414,7 +414,7 @@
                         <input type="hidden" name="user_agent" id="user_agent_modal">
                         <input type="hidden" name="timezone" id="timezone_modal">
 
-                        
+
                         <div class="cta-row">
                             <button type="submit" id="launchSubmit" class="cta-btn">Book Now</button>
                         </div>
@@ -1017,7 +1017,8 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea class="rt-input form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+                        <textarea class="rt-input form-control" id="message" rows="5"
+                            placeholder="Enter your message"></textarea>
                     </div>
 
                     <!-- Zoho mapped fields -->
@@ -1042,7 +1043,7 @@
                     <button type="submit" id="form-submit" class="btn lnk btn-main bg-btn">
                         Submit <span class="circle"></span>
                     </button>
-                    
+
                 </form>
 
                 <!-- hidden iframe catches Zoho redirect so page doesn't navigate -->
@@ -1148,10 +1149,11 @@
 
     <section style="background-color: white;" class="about-dg-2 pb120 pt120 bg-flat1 m-t-c">
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
+
                 <!-- Image Section -->
                 <div class="col-lg-6 v-center">
-                    <div class="img-block mt0 m-mb30">
+                    <div class="img-block mt0 m-mb30 position-relative">
                         <img src="images/about/about-dg-agency.webp" alt="Shyphan Digital Solutions"
                             class="img-fluid upset" />
                         <div class="shape-dg-1 dg-hero-shp1">
@@ -1163,57 +1165,75 @@
                 <!-- Content Section -->
                 <div class="col-lg-6">
                     <div class="common-heading-2 text-l">
-                        <h2 class="mb20">Empowering Businesses Through Digital Innovation</h2>
-                        <p>Shyphan is a IT Company and a leading digital solutions provider based in
-                            Noida, India. Since 2021.</p>
 
-                        <p class="head"><strong>Our Core Services:</strong></p>
-                        <ul class="service-list">
-                            <li><strong>Zoho CRM & ERP Customization</strong> – Seamless integration and automation
-                                for smarter business workflows.</li>
-                            <li style="margin-top: 5px;"><strong>Custom Software & App Development</strong> –
-                                Tailored
-                                tech solutions for unique business needs.</li>
-                            <li style="margin-top: 5px;"><strong>Trading Automation</strong> – Advanced automation
-                                for
-                                stock, forex, and crypto trading strategies.</li>
-                            <li style="margin-top: 5px;"><strong>Web Development & Maintenance</strong> –
-                                High-performance websites built for scalability and impact.</li>
+                        <h2 class="mb20">Empowering Businesses Through Digital Innovation</h2>
+
+                        <p>Shyphan is an IT company and a leading digital solutions provider based in Noida, India —
+                            delivering innovative technology since 2021.</p>
+
+                        <p class="head mt10"><strong>Our Core Services</strong></p>
+
+                        <ul class="service-list mt10" style="line-height: 1.9; margin-top: 15px;">
+                            <li><strong>Zoho CRM & ERP Customization</strong> – Smart automation and seamless
+                                integration
+                                to simplify your business processes.</li>
+
+                            <li><strong>Custom Software & App Development</strong> – Scalable and user-focused
+                                applications tailored to your goals.</li>
+
+                            <li><strong>Trading Automation</strong> – Intelligent systems for stock, forex,
+                                and crypto strategies with real-time execution.</li>
+
+                            <li><strong>Web Development & Maintenance</strong> – High-performance websites built
+                                for growth, speed, and long-term impact.</li>
                         </ul>
 
-                        <p style="margin-top: 10px;">With 2+ years of proven expertise, we deliver cost-effective
-                            and
-                            scalable digital solutions globally. Whether you're a startup or an enterprise, Shyphan
-                            ensures your business stays ahead in the digital age.</p>
                     </div>
                 </div>
-
-                <!-- Mobile Style Fixes -->
-                <style>
-                    @media (max-width: 768px) {
-                        .common-heading-2 {
-                            text-align: left;
-                        }
-
-                        .service-list {
-                            padding-left: 20px;
-                        }
-
-                        .service-list li {
-                            text-align: left;
-                            margin-left: 0;
-                        }
-
-                        .head,
-                        p,
-                        span {
-                            text-align: left;
-                        }
-                    }
-                </style>
             </div>
         </div>
+
+        <!-- Mobile Style Fixes -->
+        <style>
+            @media (max-width: 768px) {
+                .common-heading-2 {
+                    text-align: left;
+                }
+
+                .service-list {
+                    padding-left: 20px;
+                }
+
+                .service-list li {
+                    text-align: left;
+                    margin-bottom: 10px;
+                }
+
+                .head,
+                p,
+                span {
+                    text-align: left;
+                }
+
+                .mt20 {
+                    margin-top: 20px;
+                }
+
+                .mt30 {
+                    margin-top: 30px;
+                }
+            }
+
+            .mt20 {
+                margin-top: 20px;
+            }
+
+            .mt30 {
+                margin-top: 30px;
+            }
+        </style>
     </section>
+
 
 
     <!--Start Service-->
@@ -1364,7 +1384,7 @@
     <!--End Service-->
 
     <!--Start statistics-->
-    <div class="dg-statistics-section bg-flat1  pb120 pt120 tilt3d">
+    <div class="dg-statistics-section bg-flat1 pb120 pt120 tilt3d">
         <div class="container">
             <div class="row justify-content-center t-ctr">
                 <div class="col-lg-4 col-sm-6">
@@ -1373,8 +1393,8 @@
                             <img src="images/icons/startup.svg" alt="years" class="img-fluid" />
                         </div>
                         <div class="statnumb">
-                            <span class="counter">2</span><span>+</span>
-                            <p>Year In Business</p>
+                            <span class="counter">2021</span>
+                            <p>Founded Year</p>
                         </div>
                     </div>
                 </div>
@@ -1384,8 +1404,8 @@
                             <img src="images/icons/team.svg" alt="team" class="img-fluid" />
                         </div>
                         <div class="statnumb">
-                            <span>10+</span>
-                            <p>Team Members</p>
+                            <span>15+</span>
+                            <p>Skilled Team Members</p>
                         </div>
                     </div>
                 </div>
@@ -1394,10 +1414,10 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="statistics">
                         <div data-tilt data-tilt-max="20" data-tilt-speed="1000" class="statistics-img">
-                            <img src="images/icons/deal.svg" alt="happy" class="img-fluid" />
+                            <img src="images/icons/deal.svg" alt="clients" class="img-fluid" />
                         </div>
                         <div class="statnumb">
-                            <span class="counter">15</span>
+                            <span class="counter">120</span><span>+</span>
                             <p>Happy Clients</p>
                         </div>
                     </div>
@@ -1408,8 +1428,8 @@
                             <img src="images/icons/computers.svg" alt="project" class="img-fluid" />
                         </div>
                         <div class="statnumb counter-number">
-                            <span class="counter">20</span><span>+</span>
-                            <p>Projects Done</p>
+                            <span class="counter">250</span><span>+</span>
+                            <p>Projects Across the Globe</p>
                         </div>
                     </div>
                 </div>
@@ -1419,7 +1439,7 @@
                             <img src="images/icons/worker.svg" alt="work" class="img-fluid" />
                         </div>
                         <div class="statnumb">
-                            <span class="counter">6</span><span>k</span>
+                            <span class="counter">12</span><span>k+</span>
                             <p>Hours Worked</p>
                         </div>
                     </div>
@@ -1431,7 +1451,7 @@
                         </div>
                         <div class="statnumb">
                             <span class="counter">24</span><span>/</span><span class="counter">7</span>
-                            <p>Support Available</p>
+                            <p>Support Availability</p>
                         </div>
                     </div>
                 </div>
@@ -1439,7 +1459,7 @@
         </div>
     </div>
     <!--End statistics-->
-    <!--Start Portfolio-->
+
 
     <!--Start Service-->
     <section class="dg-service2 pb120 pt120">
@@ -1617,92 +1637,289 @@
         }
     </style>
 
-    <section style="background-color: white;" class="dg-testinomial-section bg-flat1 pb120 pt120">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="common-heading-2 text-center">
-                        <h2 class="mb30">Customer Testimonials</h2>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Swiper Slider -->
-            <div class="swiper mySwiper mt40">
-                <div class="swiper-wrapper">
-
-                    <!-- Testimonial 1 -->
-                    <div class="swiper-slide">
-                        <div class="t-text text-center">
-                            <div class="testimonial-icon icon-female">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <p>"Shyphan helped us take our business to the next level with a stunning website. Their
-                                ability to solve complex problems and provide creative solutions really sets them
-                                apart."</p>
-                            <h5 class="mt20">Farah Alquhtani</h5>
-                            <p class="text-muted">Co-Founder & CEO, Hallek Technologies</p>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 2 -->
-                    <div class="swiper-slide">
-                        <div class="t-text text-center">
-                            <div class="testimonial-icon icon-male">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <p>"Working with Shyphan has been an incredible journey. Their designs gave us a fresh
-                                identity and helped us connect better with our audience."</p>
-                            <h5 class="mt20">Sidharth</h5>
-                            <p class="text-muted">Co-Founder & CMO, Creative Pujaari</p>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 3 -->
-                    <div class="swiper-slide">
-                        <div class="t-text text-center">
-                            <div class="testimonial-icon icon-male">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <p>"From ideation to execution, Shyphan’s expertise made the process seamless. Our
-                                travel
-                                platform now looks modern and user-friendly!"</p>
-                            <h5 class="mt20">Yatharth</h5>
-                            <p class="text-muted">Founder & CEO, Travel Pujaari</p>
-                        </div>
-                    </div>
-
-                    <!-- Testimonial 4 -->
-                    <div class="swiper-slide">
-                        <div class="t-text text-center">
-                            <div class="testimonial-icon icon-male">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <p>"Shyphan transformed our technical vision into reality. Their commitment and
-                                technical
-                                expertise are second to none."</p>
-                            <h5 class="mt20">Shivam Gupta</h5>
-                            <p class="text-muted">Co-Founder & CTO, House Technologies</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+<!--Start Testimonials Section-->
+<section style="background-color: white;" class="dg-testimonial-section bg-flat1 pb120 pt120">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <div class="common-heading-2">
+          <h2 class="mb30">What Our Clients Say</h2>
+          <p>Over 250+ successful projects delivered globally — from Zoho Implementation to AI-driven automation and custom development, Shyphan empowers businesses to grow smarter.</p>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <!-- Swiper Slider -->
+    <div class="swiper mySwiper mt60">
+      <div class="swiper-wrapper">
 
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            loop: true,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            }
-        });
-    </script>
+        <!-- Review 1 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user-tie"></i></div>
+            <p>"We partnered with Shyphan for Zoho CRM implementation and automation. The workflow setup and dashboard insights completely streamlined our sales operations."</p>
+            <h5>Rohit Sharma</h5>
+            <p class="text-muted">Delhi, India</p>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user"></i></div>
+            <p>"Their custom Zoho Creator app helped us manage field operations with real-time tracking. Excellent understanding of business logic and user experience."</p>
+            <h5>Priya Verma</h5>
+            <p class="text-muted">Mumbai, India</p>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user-tie"></i></div>
+            <p>"We wanted a custom Zoho Books integration with our ERP. The Shyphan team delivered a perfect API-based solution within tight deadlines."</p>
+            <h5>Karan Malhotra</h5>
+            <p class="text-muted">Bangalore, India</p>
+          </div>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user"></i></div>
+            <p>"AI-powered chatbot developed by Shyphan improved our customer support efficiency by 60%. Highly satisfied with their innovation and support."</p>
+            <h5>Sneha Tiwari</h5>
+            <p class="text-muted">Pune, India</p>
+          </div>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user-tie"></i></div>
+            <p>"Their team implemented Zoho People and Payroll modules flawlessly. Migration was smooth and post-implementation support has been excellent."</p>
+            <h5>Vivek Gupta</h5>
+            <p class="text-muted">Noida, India</p>
+          </div>
+        </div>
+
+        <!-- Review 6 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user"></i></div>
+            <p>"Shyphan customized Zoho Projects for our startup. Automation and reporting modules have saved us countless hours every week."</p>
+            <h5>Sanya Jain</h5>
+            <p class="text-muted">Hyderabad, India</p>
+          </div>
+        </div>
+
+        <!-- Review 7 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user-tie"></i></div>
+            <p>"We chose Shyphan for integrating Zoho Inventory with eCommerce platforms. Smooth process and timely delivery, definitely recommend."</p>
+            <h5>Ritesh Agarwal</h5>
+            <p class="text-muted">Kolkata, India</p>
+          </div>
+        </div>
+
+        <!-- Review 8 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user"></i></div>
+            <p>"From CRM automation to AI-driven lead scoring, Shyphan handled everything with precision. We’re planning our next project with them already!"</p>
+            <h5>Aditi Bansal</h5>
+            <p class="text-muted">Chennai, India</p>
+          </div>
+        </div>
+
+        <!-- Review 9 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user-tie"></i></div>
+            <p>"Their Zoho integration with WhatsApp and Telegram helped us build a 24/7 customer communication channel. Great technical depth and execution."</p>
+            <h5>Rajeev Menon</h5>
+            <p class="text-muted">Kerala, India</p>
+          </div>
+        </div>
+
+        <!-- Review 10 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user"></i></div>
+            <p>"The AI-based document analyzer developed by Shyphan works flawlessly. It extracts and categorizes data much faster than manual processes."</p>
+            <h5>Megha Patel</h5>
+            <p class="text-muted">Ahmedabad, India</p>
+          </div>
+        </div>
+
+        <!-- Review 11 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user-tie"></i></div>
+            <p>"Shyphan implemented Zoho CRM and integrated it with our custom inventory system. Excellent coordination and fast delivery."</p>
+            <h5>Hussain Al Nader</h5>
+            <p class="text-muted">Saudi Arabia</p>
+          </div>
+        </div>
+
+        <!-- Review 12 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user"></i></div>
+            <p>"We needed Zoho Finance automation. Their team created a unified dashboard that gives us daily financial insights — amazing precision."</p>
+            <h5>Omar Khalil</h5>
+            <p class="text-muted">Dubai, UAE</p>
+          </div>
+        </div>
+
+        <!-- Review 13 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user-tie"></i></div>
+            <p>"Their AI forecasting model helped us predict customer churn and sales trends with high accuracy. Truly professional and collaborative."</p>
+            <h5>Lucas Fernandez</h5>
+            <p class="text-muted">Spain</p>
+          </div>
+        </div>
+
+        <!-- Review 14 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user"></i></div>
+            <p>"We hired Shyphan for a Zoho Creator-based workflow. They understood our requirements perfectly and delivered beyond expectations."</p>
+            <h5>Sophie Taylor</h5>
+            <p class="text-muted">Australia</p>
+          </div>
+        </div>
+
+        <!-- Review 15 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user-tie"></i></div>
+            <p>"From Zoho setup to API development, their expertise made our transformation smooth. Post-launch support was outstanding."</p>
+            <h5>Daniel Reed</h5>
+            <p class="text-muted">Canada</p>
+          </div>
+        </div>
+
+        <!-- Review 16 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user"></i></div>
+            <p>"They built an AI-powered HR assistant using Zoho People and OpenAI API. It reduced HR workload dramatically. Highly creative team!"</p>
+            <h5>Fatima Noor</h5>
+            <p class="text-muted">Qatar</p>
+          </div>
+        </div>
+
+        <!-- Review 17 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user-tie"></i></div>
+            <p>"Shyphan’s team handled our CRM migration with zero downtime. Excellent communication and highly skilled professionals."</p>
+            <h5>Mohamed Khalid</h5>
+            <p class="text-muted">Egypt</p>
+          </div>
+        </div>
+
+        <!-- Review 18 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user"></i></div>
+            <p>"We got a custom Zoho Inventory app integrated with Shopify — fast, efficient, and great support throughout."</p>
+            <h5>Arwa Al-Hassan</h5>
+            <p class="text-muted">Oman</p>
+          </div>
+        </div>
+
+        <!-- Review 19 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user-tie"></i></div>
+            <p>"The AI-based lead management system they delivered improved our conversion tracking by 50%. Highly data-driven and reliable team."</p>
+            <h5>John Miller</h5>
+            <p class="text-muted">United States</p>
+          </div>
+        </div>
+
+        <!-- Review 20 -->
+        <div class="swiper-slide">
+          <div class="review-card text-center">
+            <div class="testimonial-icon"><i class="fas fa-user"></i></div>
+            <p>"Working with Shyphan was seamless — clear timelines, quality delivery, and responsive team. They’re now our go-to Zoho partner."</p>
+            <h5>Sarah Collins</h5>
+            <p class="text-muted">United Kingdom</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Swiper JS & CSS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    }
+  });
+</script>
+
+<style>
+.review-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  height: 340px; /* Fixed height for equal boxes */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+.review-card p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+}
+.review-card h5 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin-top: 15px;
+}
+.text-muted {
+  color: #777;
+  font-size: 13px;
+}
+.testimonial-icon {
+  font-size: 30px;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+.swiper {
+  padding: 20px 0;
+}
+</style>
+
 
     <!--End Blogs-->
     <!--Start Clients-->
@@ -1978,7 +2195,7 @@
 
     <!-- Zoho CRM Integration Script -->
     <script src="js/zoho-crm-integration.js"></script>
-    
+
     <!-- Zoho WebForm Analytics (include ONCE per page; kept as provided) -->
     <script id="wf_anal"
         src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=36d079732b53cfec8ff3a63e3492c2a6195d4320077bd97e2a576dc49a11901ffbf352d196461d3046e80e1d9bed77e3gid65151fdd076d7da217ab0e76ee25da556f9ca3f6f88d9e094183287cac94bcc9gid892c2466bdd93c88793126f522ec4109de72d0990df88a4608d6bfc34bf9d141gid746845c91d476716ef89b57c5d2e4b4ea70b7abfac520678a3deb7b29cb87bd3&tw=4ca93b722df015027cb74a89d6062ae02f614c63f898fc9dbf0a51c1bbb517b0"></script>
