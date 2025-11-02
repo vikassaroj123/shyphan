@@ -264,6 +264,20 @@
             console.log('Zoho CRM Integration: Submission completed successfully! Response:', data);
             // Track conversion in Google Ads
             gtag_report_conversion();
+            
+            // Track GA4 generate_lead event
+            if (typeof gtag === 'function') {
+                const formId = form.id || form.name || 'contactForm';
+                const pageName = getPageName();
+                gtag('event', 'generate_lead', {
+                    value: 1,
+                    currency: 'INR',
+                    form_id: formId,
+                    form_location: pageName,
+                    method: 'form_submission'
+                });
+            }
+            
             // Show confirmation only when submission is actually done
             showSubmissionConfirmation(form);
             // Don't reset form automatically - let user see their data
