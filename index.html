@@ -2581,23 +2581,8 @@
                     }
                 });
                 
-                                // Close dropdown when clicking outside with smooth animation
-                // Use setTimeout to prevent immediate closing when opening
-                let clickTimeout;
-                document.addEventListener('click', function(e) {
-                    clearTimeout(clickTimeout);
-                    clickTimeout = setTimeout(function() {
-                        if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
-                            if (langDropdown.style.display === 'block') {
-                                langDropdown.style.opacity = '0';
-                                langDropdown.style.transform = 'translateY(-10px)';
-                                setTimeout(() => {
-                                    langDropdown.style.display = 'none';
-                                }, 300);
-                            }
-                        }
-                    }, 10);
-                });
+                                // Dropdown stays open until button is clicked again or language is selected
+                // Removed click-outside-to-close functionality per user request
                 
                 // Handle language selection
                 langOptions.forEach(option => {

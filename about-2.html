@@ -31,8 +31,18 @@
     
     
     <!-- Google Translate Widget -->
-    
-    
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,es,fr,de,it,pt,ar,hi,zh-CN,ja,ko,ru,tr,nl,pl,sv,da,fi,no,th,vi,id,ms,he,cs,hu,ro,bg,hr,sk,sl,el,uk,ca,eu,ga,mt,is,lt,lv,et,af,sw,zu,xh,am,ne,si,my,km,lo,ka,hy,az,kk,ky,uz,tg,mn,bo,dz,ta,te,kn,ml,gu,pa,as,bn,or,ur,fa',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <style>
                 /* Hide Google Translate Widget Completely */
         #google_translate_element {
@@ -1427,23 +1437,8 @@
                     }
                 });
                 
-                                // Close dropdown when clicking outside with smooth animation
-                // Use setTimeout to prevent immediate closing when opening
-                let clickTimeout;
-                document.addEventListener('click', function(e) {
-                    clearTimeout(clickTimeout);
-                    clickTimeout = setTimeout(function() {
-                        if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
-                            if (langDropdown.style.display === 'block') {
-                                langDropdown.style.opacity = '0';
-                                langDropdown.style.transform = 'translateY(-10px)';
-                                setTimeout(() => {
-                                    langDropdown.style.display = 'none';
-                                }, 300);
-                            }
-                        }
-                    }, 10);
-                });
+                                // Dropdown stays open until button is clicked again or language is selected
+                // Removed click-outside-to-close functionality per user request
                 
                 // Handle language selection
                 langOptions.forEach(option => {
@@ -1597,6 +1592,13 @@
             }
         })();
     </script>
+
+    <!-- Zoho CRM Integration Script -->
+    <script src="js/zoho-crm-integration.js"></script>
+
+    <!-- Zoho WebForm Analytics (include ONCE per page; kept as provided) -->
+    <script id="wf_anal"
+        src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=36d079732b53cfec8ff3a63e3492c2a6195d4320077bd97e2a576dc49a11901ffbf352d196461d3046e80e1d9bed77e3gid65151fdd076d7da217ab0e76ee25da556f9ca3f6f88d9e094183287cac94bcc9gid892c2466bdd93c88793126f522ec4109de72d0990df88a4608d6bfc34bf9d141gid746845c91d476716ef89b57c5d2e4b4ea70b7abfac520678a3deb7b29cb87bd3&tw=4ca93b722df015027cb74a89d6062ae02f614c63f898fc9dbf0a51c1bbb517b0"></script>
 
     <!-- Zoho CRM Integration Script -->
     <script src="js/zoho-crm-integration.js"></script>
