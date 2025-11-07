@@ -508,11 +508,62 @@ header .dropdown-menu {
     box-shadow: 0 4px 6px 0 rgba(12, 0, 46, .08)
 }
 
+body.inner-page .main-header {
+    background: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+body.inner-page .main-header .custom-nav .nav-list li a.menu-links,
+body.inner-page .main-header .dropdown-symbol {
+    color: #000 !important;
+}
+
+body.inner-page .main-header .mega-white-logo {
+    display: none;
+}
+
+body.inner-page .main-header .mega-darks-logo {
+    display: inline-block;
+}
+
+body.inner-page .main-header .lang-btn {
+    background: rgba(0, 0, 0, 0.08) !important;
+    border: 1.5px solid rgba(0, 0, 0, 0.15) !important;
+    color: #333 !important;
+}
+
+body.inner-page .main-header .lang-btn:hover {
+    background: rgba(0, 0, 0, 0.12) !important;
+    border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+body.inner-page .main-header .toggle span,
+body.inner-page .main-header .toggle span:before,
+body.inner-page .main-header .toggle span:after {
+    background: #000 !important;
+}
+
+body.inner-page .main-header .menu-links,
+body.inner-page .main-header .dropdown-symbol {
+    color: #000 !important;
+}
+
+body.inner-page .main-header .mega-white-logo {
+    display: none !important;
+}
+
+body.inner-page .main-header .mega-darks-logo {
+    display: inline-block !important;
+}
+
 .main-header {
     padding: 0 20px;
     height: 85px;
     z-index: 99999;
-    border-bottom: 1px solid rgba(255, 255, 255, .1)
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    background: transparent;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
 }
 
 .fa-ani {

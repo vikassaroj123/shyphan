@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Blog (Right Sidebar) | Shyphan</title>
+    <meta name="description"
+        content="Shyphan is your trusted partner in delivering innovative IT services. We specialize in custom software development, dynamic website creation, and result-driven digital marketing strategies. Our resources empower businesses with the tools and insights needed to excel in the digital landscape. At Shyphan, we’re dedicated to shaping a smarter tomorrow through cutting-edge technology and unmatched expertise.">
+    <meta name="keywords" content="Creative Agency, Marketing Agency">
+    <meta name="author" content="rajesh-doot">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-cosublor" content="#fff">
+    <!--website-favicon-->
+    <link href="images/favicon.png" rel="icon">
+    <!--plugin-css-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/plugin.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- template-style-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/darkmode.css" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NW3KSNSQN2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NW3KSNSQN2');
+        gtag('config', 'AW-17557804164');
+    </script>
+
+
+    <!-- Google Translate Widget -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,es,fr,de,it,pt,ar,hi,zh-CN,ja,ko,ru,tr,nl,pl,sv,da,fi,no,th,vi,id,ms,he,cs,hu,ro,bg,hr,sk,sl,el,uk,ca,eu,ga,mt,is,lt,lv,et,af,sw,zu,xh,am,ne,si,my,km,lo,ka,hy,az,kk,ky,uz,tg,mn,bo,dz,ta,te,kn,ml,gu,pa,as,bn,or,ur,fa',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    /* Smooth scroll transitions for navbar */
+    .main-header {
+        transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease !important;
+    }
+
+    .main-header .custom-nav .nav-list li a.menu-links {
+        transition: color 0.3s ease !important;
+    }
+
+    .main-header .lang-btn {
+        transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
+    }
+
+    .nav-bg-b .custom-nav .nav-list li a.menu-links,
+    .top-header .navbar .custom-btn:focus,
+    .top-header .navbar .custom-btn:hover {
+        color: white !important;
+    }
+
+    .main-header.sticky {
+        background: #fff !important;
+        color: black !important;
+        box-shadow: 0 4px 6px 0 rgba(12, 0, 46, 0.08) !important;
+    }
+
+    .main-header.sticky .custom-nav .nav-list li a.menu-links {
+        color: black !important;
+    }
+
+    /* Language selector button on scroll */
+    .main-header.sticky .lang-btn {
+        background: rgba(0, 0, 0, 0.05) !important;
+        border: 1.5px solid rgba(0, 0, 0, 0.2) !important;
+        color: #000 !important;
+    }
+
+    .main-header.sticky .lang-btn:hover {
+        background: rgba(0, 0, 0, 0.1) !important;
+        border: 1.5px solid rgba(0, 0, 0, 0.3) !important;
+    }
+</style>
+</head>
+<body class="inner-page">
+
+    <!-- Google Translate Widget (Hidden but functional) -->
+    <div id="google_translate_element" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;"></div>
+    <style>
+        /* Google Translate Widget Styling */
+        #google_translate_element {
+            position: fixed !important;
+            top: 80px !important;
+            right: 20px !important;
+            z-index: 9999 !important;
+            background: white !important;
+            padding: 5px !important;
+            border-radius: 5px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2) !important;
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            #google_translate_element {
+                top: 70px !important;
+                right: 10px !important;
+                padding: 3px !important;
+            }
+        }
+        
+        /* Hide Google Translate banner completely */
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        }
+        
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+        
+        .goog-te-banner {
+            display: none !important;
+        }
+        
+        .skiptranslate {
+            display: none !important;
+        }
+        
+        /* Hide Google Translate top bar */
+        body {
+            top: 0 !important;
+        }
+        
+        body > .skiptranslate {
+            display: none !important;
+        }
+        
+        /* Hide iframe banner */
+        iframe.goog-te-banner-frame {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            width: 0 !important;
+            opacity: 0 !important;
+        }
+        
+        /* Style the select dropdown */
+        .goog-te-combo {
+            margin: 0 !important;
+            padding: 5px 10px !important;
+            border: 1px solid #ddd !important;
+            border-radius: 4px !important;
+            font-size: 14px !important;
+        }
+        
+        /* Language Selector Styles */
+        .language-selector-wrapper {
+            position: relative;
+        }
+        
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.15) !important;
+            border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: 6px !important;
+            padding: 6px 10px !important;
+            cursor: pointer !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+            color: #fff !important;
+            font-size: 13px !important;
+            transition: all 0.3s ease !important;
+            font-weight: 600 !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+            backdrop-filter: blur(5px) !important;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15) !important;
+            transform: translateY(-1px) !important;
+        }
+        
+        /* Make language selector visible on dark backgrounds */
+        .dark-header .lang-btn,
+        .dark-header-nav .lang-btn,
+        header[class*="dark"] .lang-btn {
+            background: rgba(255, 255, 255, 0.15) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+            color: #fff !important;
+        }
+        
+        /* Make language selector visible on light backgrounds */
+        .light-header .lang-btn,
+        .light-header-nav .lang-btn,
+        header:not([class*="dark"]) .lang-btn {
+            background: rgba(0, 0, 0, 0.08) !important;
+            border-color: rgba(0, 0, 0, 0.15) !important;
+            color: #333 !important;
+        }
+        
+        .light-header .lang-btn:hover,
+        .light-header-nav .lang-btn:hover,
+        header:not([class*="dark"]) .lang-btn:hover {
+            background: rgba(0, 0, 0, 0.12) !important;
+            border-color: rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        /* Ensure visibility with text shadow */
+        .lang-btn .lang-code,
+        .lang-btn .lang-flag {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .light-header .lang-btn .lang-code,
+        .light-header .lang-btn .lang-flag {
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+        }
+        
+        .lang-flag {
+            font-size: 16px !important;
+            line-height: 1 !important;
+        }
+        
+        .lang-code {
+            font-weight: 600 !important;
+            letter-spacing: 0.5px !important;
+        }
+        
+                .lang-dropdown {
+            max-height: 400px;
+            overflow-y: auto;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .lang-dropdown[style*="block"] {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .lang-dropdown[style*="block"] {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .lang-dropdown::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .lang-dropdown::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .lang-dropdown::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+        
+        .lang-dropdown::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        @media (max-width: 768px) {
+            .language-selector-wrapper {
+                margin-right: 10px;
+            }
+            
+            .lang-btn {
+                padding: 5px 8px !important;
+                font-size: 12px !important;
+            }
+            
+            .lang-flag {
+                font-size: 14px !important;
+            }
+        }
+    </style>
+    <!--Start Preloader -->
+    <div class="onloadpage" id="page_loader">
+        <div class="pre-content">
+            <div class="logo-pre"><img src="images/logo/single_logo-removebg-preview.png" alt="Logo"
+                    class="img-fluid" /></div>
+            <div class="pre-text- text-radius  text-animation bg-b">A new-age digital transformation company.</div>
+        </div>
+    </div>
+    <!--End Preloader -->
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+919565153545" target="_blank" class="whatsapp-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <style>
+        /* smooth backdrop + pop */
+        .modal-backdrop {
+            opacity: 0;
+            transition: opacity .4s ease;
+        }
+
+        .modal-backdrop.show {
+            opacity: .35;
+            backdrop-filter: blur(2px);
+        }
+
+        #launchOfferModal.modal.fade .modal-dialog {
+            transform: translateY(12px) scale(.96);
+            opacity: 0;
+            transition: transform .38s cubic-bezier(.2, .8, .2, 1), opacity .38s ease;
+        }
+
+        #launchOfferModal.modal.show .modal-dialog {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        @keyframes offerPop {
+            from {
+                transform: translateY(16px) scale(.94);
+                opacity: 0
+            }
+
+            to {
+                transform: none;
+                opacity: 1
+            }
+        }
+
+        #launchOfferModal .offer-card.anim-pop {
+            animation: offerPop .42s cubic-bezier(.2, .8, .2, 1) both;
+        }
+
+        /* card + layout */
+        #launchOfferModal .modal-dialog {
+            --bs-modal-width: 1200px;
+            max-width: 45vw;
+        }
+
+        #launchOfferModal .offer-card {
+            border: 0;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 22px 70px rgba(0, 0, 0, .28);
+            background: #fff;
+            position: relative;
+        }
+
+        #launchOfferModal .offer-close {
+            position: absolute;
+            right: 14px;
+            top: 14px;
+            z-index: 3;
+            color: #ff4d4f;
+            font-size: 20px;
+            background: #fff;
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 0, 0, .06);
+            cursor: pointer;
+        }
+
+        #launchOfferModal .offer-head {
+            background: #0d3b72;
+            color: #fff;
+            padding: 28px 28px 18px;
+            text-align: center;
+        }
+
+        #launchOfferModal .offer-head .brand img {
+            max-width: 28%;
+        }
+
+        #launchOfferModal .offer-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 14px 0 8px;
+            background: #ffd400;
+            color: #1f2a44;
+            border-radius: 999px;
+            padding: 8px 16px;
+            font-weight: 800;
+            font-size: 15px;
+        }
+
+        #launchOfferModal .offer-sub {
+            color: #e9f1ff;
+            font-size: 13px;
+            margin: 2px 0 0;
+        }
+
+        #launchOfferModal .offer-body {
+            padding: 28px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(255, 255, 255, .96)), url('images/bg/riyadh-silhouette.png') right bottom/40% no-repeat;
+        }
+
+        #launchOfferModal .rt-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 20px;
+            margin-top: 20px;
+        }
+
+        #launchOfferModal .rt-input {
+            background: #fff;
+            border: 1px solid #e8ecf1;
+            border-radius: 14px;
+            padding: 14px 16px;
+            font-size: 15px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, .05);
+            width: 100%;
+        }
+
+        #launchOfferModal .cta-row {
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        #launchOfferModal .cta-btn {
+            border: none;
+            border-radius: 14px;
+            padding: 14px 28px;
+            font-weight: 800;
+            font-size: 16px;
+            background: #0d3b72;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 10px 24px rgba(13, 59, 114, .35);
+            transition: .2s ease-in-out;
+        }
+
+        #launchOfferModal .cta-btn:hover {
+            background: #09416b;
+        }
+
+        @media (max-width:991.98px) {
+            #launchOfferModal .modal-dialog {
+                max-width: 90vw;
+                margin: 0 auto;
+            }
+
+            #launchOfferModal .offer-head {
+                padding: 20px 16px 12px;
+            }
+
+            #launchOfferModal .offer-head .brand img {
+                max-width: 60%;
+            }
+
+            #launchOfferModal .offer-pill {
+                font-size: 13px;
+                padding: 6px 12px;
+                gap: 6px;
+            }
+
+            #launchOfferModal .offer-sub {
+                font-size: 12px;
+            }
+
+            #launchOfferModal .offer-body {
+                padding: 20px 16px;
+                background-size: 60%;
+            }
+
+            #launchOfferModal .rt-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            #launchOfferModal .rt-input {
+                font-size: 14px;
+                padding: 12px 14px;
+            }
+
+            #launchOfferModal .cta-btn {
+                width: 100%;
+                padding: 14px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width:575.98px) {
+            #launchOfferModal .modal-dialog {
+                max-width: 85vw;
+                margin: 0 auto;
+                max-height: 80vh;
+            }
+
+            #launchOfferModal .modal-content {
+                max-height: 80vh;
+            }
+
+            #launchOfferModal .offer-head .brand img {
+                max-width: 75%;
+            }
+
+            #launchOfferModal .offer-sub {
+                font-size: 11px;
+            }
+
+            #launchOfferModal .offer-pill {
+                font-size: 12px;
+                padding: 5px 10px;
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+
+            .modal-backdrop,
+            #launchOfferModal.modal.fade .modal-dialog,
+            #launchOfferModal.modal.show .modal-dialog,
+            #launchOfferModal .offer-card.anim-pop {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+    </style>
+
+    <div class="modal fade" id="launchOfferModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-sm-down">
+            <div class="modal-content offer-card">
+                <button type="button" class="offer-close" data-bs-dismiss="modal">✕</button>
+
+                <div class="offer-head">
+                    <div class="brand">
+                        <img style="max-width:28%;" src="images/zoho-logo-darkbg.svg" alt="Zoho" />
+                    </div>
+                    <div class="offer-pill">
+                        <span>15% OFF</span><span>•</span><span>On Full Zoho Implementation</span>
+                    </div>
+                    <p class="offer-sub">Start Smart with Zoho – Book a free consultation and join our launch demos.</p>
+                </div>
+
+                <div class="offer-body">
+                    <!-- Zoho Web-to-Lead (posts into hidden iframe so page stays put) -->
+                    <form id="webform1030997000000474013_modal" action="https://crm.zoho.in/crm/WebToLeadForm"
+                        name="WebToLeads1030997000000474013_modal" method="POST" accept-charset="UTF-8"
+                        target="zohosubmit_iframe_modal" onsubmit="return zc_submit_modal(event)">
+
+                        <!-- Zoho required -->
+                        <input type="text" name="xnQsjsdp" style="display:none"
+                            value="f16ce13a93e1a1b54f1a3a6d56cb1fec8c3a139aa675f0c41dce9435a5dc4b6e">
+                        <input type="hidden" name="zc_gad" id="zc_gad_modal" value="">
+                        <input type="text" name="xmIwtLD" style="display:none"
+                            value="11a94d3377ef1f7d53c0e02acb15716293de268fdf21d5cf503d03731c2419a2f49e82ce44aefb6cbdaa5286a6bc84b7">
+                        <input type="text" name="actionType" style="display:none" value="TGVhZHM=">
+                        <input type="text" name="returnURL" style="display:none"
+                            value="https://www.shyphan.com/thank-you.html">
+
+                        <!-- Visible fields -->
+                        <div class="rt-grid">
+                            <div><input class="rt-input" type="text" id="fullName_modal" placeholder="Full Name"
+                                    required></div>
+                            <div><input class="rt-input" type="email" name="Email" placeholder="Email" maxlength="100"
+                                    required></div>
+                            <div><input class="rt-input" type="tel" name="Phone" placeholder="Phone" maxlength="30"
+                                    required></div>
+                            <div><input class="rt-input" type="text" name="Company" placeholder="Company"
+                                    maxlength="200" required></div>
+                        </div>
+
+                        <!-- Hidden mapped fields -->
+                        <input type="hidden" name="First Name" id="first_name_modal">
+                        <input type="hidden" name="Last Name" id="last_name_modal">
+                        <input type="hidden" name="Lead Source" value="Website - Modal Offer">
+
+                        <!-- Tracking (your helper fills these) -->
+                        <input type="hidden" name="utm_source" id="utm_source_modal">
+                        <input type="hidden" name="utm_medium" id="utm_medium_modal">
+                        <input type="hidden" name="utm_campaign" id="utm_campaign_modal">
+                        <input type="hidden" name="utm_term" id="utm_term_modal">
+                        <input type="hidden" name="utm_content" id="utm_content_modal">
+                        <input type="hidden" name="gclid" id="gclid_hidden_modal">
+                        <input type="hidden" name="page_url" id="page_url_modal">
+                        <input type="hidden" name="referrer" id="referrer_modal">
+                        <input type="hidden" name="user_agent" id="user_agent_modal">
+                        <input type="hidden" name="timezone" id="timezone_modal">
+
+
+                        <div class="cta-row">
+                            <button type="submit" id="launchSubmit" class="cta-btn">Book Now</button>
+                        </div>
+                    </form>
+
+                    <!-- hidden iframe catches Zoho redirect so page doesn't navigate -->
+                    <iframe name="zohosubmit_iframe_modal" id="zohosubmit_iframe_modal" style="display:none;"></iframe>
+
+                    <!-- Same-page Thank You -->
+                    <div id="modal-thanks" style="display:none; text-align:center; padding:18px;">
+                        <h4 style="margin-bottom:6px;">Thank you! 🎉</h4>
+                        <p>We’ll contact you shortly.</p>
+                        <button type="button" class="cta-btn" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        (function () {
+            const GAS_URL = "https://script.google.com/macros/s/AKfycbxt6K-1QSL_uQe3tDJVQGlCoXXGVzbMKraPze2aDSNbtnsvf27yVHg_EAb5wIleWU-oyQ/exec";
+
+            // auto-open modal with delay + show once per session
+            window.addEventListener('load', () => {
+                const el = document.getElementById('launchOfferModal');
+                if (!el || !window.bootstrap) return;
+
+                const DELAY_MS = 1000; // <— tweak delay here
+
+                // comment this line if you want it every page load
+                const alreadyShown = sessionStorage.getItem('offerShown');
+
+                setTimeout(() => {
+                    if (alreadyShown) return;
+
+                    const modal = new bootstrap.Modal(el, { backdrop: true });
+                    // add a tiny extra pop to the card on "shown"
+                    el.addEventListener('shown.bs.modal', () => {
+                        el.querySelector('.offer-card')?.classList.add('anim-pop');
+                    }, { once: true });
+
+                    modal.show();
+                    sessionStorage.setItem('offerShown', '1');
+                }, DELAY_MS);
+            });
+
+
+            const form = document.getElementById('launchForm');
+            const statusEl = document.getElementById('leadStatus');
+            const submitBtn = document.getElementById('launchSubmit');
+
+            const setHidden = (n, v) => {
+                const i = form.querySelector(`input[name="${n}"]`);
+                if (i) i.value = v || "";
+            };
+            const setTracking = () => {
+                const qs = new URLSearchParams(location.search);
+                setHidden('utm_source', qs.get('utm_source'));
+                setHidden('utm_medium', qs.get('utm_medium'));
+                setHidden('utm_campaign', qs.get('utm_campaign'));
+                setHidden('utm_term', qs.get('utm_term'));
+                setHidden('utm_content', qs.get('utm_content'));
+                setHidden('gclid', qs.get('gclid'));
+                setHidden('page_url', location.href);
+                setHidden('referrer', document.referrer || '');
+                setHidden('user_agent', navigator.userAgent || '');
+                setHidden('timezone', Intl.DateTimeFormat().resolvedOptions().timeZone || '');
+            };
+            setTracking();
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                statusEl.textContent = "";
+
+                let ok = true;
+                ['name', 'email', 'phone', 'company'].forEach(n => {
+                    const input = form.querySelector(`[name="${n}"]`);
+                    if (!input || !input.checkValidity()) ok = false;
+                });
+                if (!ok) {
+                    statusEl.innerHTML = '<span style="color:#ef4444">Please fix the highlighted fields.</span>';
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                const orig = submitBtn.textContent;
+                submitBtn.textContent = 'Submitting...';
+
+                try {
+                    const fd = new FormData(form);
+                    await fetch(GAS_URL, { method: 'POST', body: fd, mode: 'no-cors' });
+
+                    statusEl.innerHTML = '<span style="color:#16a34a">Thank you! We\'ll contact you shortly.</span>';
+                    form.reset();
+                    setTracking();
+
+                    /* === ADDED: GA4 event after successful submit === */
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', {
+                            value: 1,
+                            currency: 'INR',
+                            form_id: 'launchForm',
+                            method: 'modal'
+                        });
+                    }
+                    /* === /ADDED === */
+
+                } catch (err) {
+                    statusEl.innerHTML = '<span style="color:#ef4444">Could not submit now. Please try again.</span>';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = orig;
+                }
+            });
+        })();
+    </script>
+
+    <!--Start Header -->
+    <header class="header-pr nav-bg-b main-header navfix fixed-top menu-white">
+        <div class="container-fluid m-pad">
+            <div class="menu-header">
+                <div class="dsk-logo"><a class="nav-brand" href="/">
+                        <img src="images/logo/single_logo-removebg-preview.png" alt="Logo" class="mega-white-logo" />
+                        <img src="images/logo/single_logo-removebg-preview.png" alt="Logo" class="mega-darks-logo" />
+                    </a>
+                </div>
+
+                <div class="custom-nav" role="navigation">
+                    <ul class="nav-list">
+                        <li class="sbmenu">
+                            <a href="/" class="menu-links">Home</a>
+                        </li>
+
+                        <li class="sbmenu rpdropdown">
+                            <a href="#" class="menu-links">About <span class="dropdown-symbol">▾</span></a>
+                            <div class="nx-dropdown menu-dorpdown">
+                                <div class="sub-menu-section">
+                                    <div class="sub-menu-center-block">
+                                        <div class="sub-menu-column smfull">
+                                            <ul style="list-style: none; padding: 0; margin-top: -20px;">
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="about-2.html">About</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="mission-vision.html">Our Mission & Vision</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="development-process.html">Development Process</a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li class="sbmenu rpdropdown">
+                            <a href="#" class="menu-links">Software <span class="dropdown-symbol">▾</span></a>
+                            <div class="nx-dropdown menu-dorpdown">
+                                <div class="sub-menu-section">
+                                    <div class="sub-menu-center-block">
+                                        <div class="sub-menu-column smfull">
+                                            <ul style="list-style: none; margin-top: -20px;">
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="zoho-books.html">Zoho Books</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="zoho-people.html">Zoho People</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="zoho-crm.html">Zoho CRM</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="zoho-creator.html">Zoho Creator</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="zoho-payroll.html">Zoho Payroll</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="zoho-inventory.html">Zoho Inventory</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="zoho-one.html">Zoho One</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="sbmenu rpdropdown">
+                            <a href="#" class="menu-links">Website Development <span
+                                    class="dropdown-symbol">▾</span></a>
+                            <div class="nx-dropdown menu-dorpdown">
+                                <div class="sub-menu-section">
+                                    <div class="sub-menu-center-block">
+                                        <div class="sub-menu-column smfull">
+                                            <ul style="list-style: none; padding: 0; margin-top: -20px;">
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="custom-website-development.html">Custom Website</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="ecommerce-website.html">E-commerce Website</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="cms-development.html">CMS Development (WordPress)</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="web-app-development.html">Web Application
+                                                        Development</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="web-app-development.html">App Development</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                        <li class="sbmenu rpdropdown">
+                            <a href="#" class="menu-links">Resource <span class="dropdown-symbol">▾</span></a>
+                            <div class="nx-dropdown menu-dorpdown">
+                                <div class="sub-menu-section">
+                                    <div class="sub-menu-center-block">
+                                        <div class="sub-menu-column smfull">
+                                            <ul style="list-style: none; padding: 0; margin-top: -20px;">
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="case-study.html">Case Study</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="tech-articles.html">Tech Articles</a>
+                                                </li>
+
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="career.html">Career</a>
+                                                </li>
+                                                <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                    <a href="faq.html">FAQ</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <!-- mobile + desktop - sidebar menu- dark mode witch and button -->
+                    <ul class="nav-list right-end-btn">
+                        <!-- Language Selector -->
+                        <li class="language-selector-wrapper">
+                            <div class="language-selector" style="position: relative; display: inline-block;">
+                                <button class="lang-btn" id="langBtn">
+                                    <span class="lang-flag" id="currentFlag">🇺🇸</span>
+                                    <span class="lang-code" id="currentLang">EN</span>
+                                    <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 3px;"></i>
+                                </button>
+                                <div class="lang-dropdown" id="langDropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); min-width: 180px; z-index: 10000; margin-top: 5px; overflow: hidden;">
+                                    <div class="lang-option" data-lang="en" data-flag="🇺🇸" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇺🇸</span>
+                                        <span>English</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="es" data-flag="🇪🇸" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇪🇸</span>
+                                        <span>Español</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="fr" data-flag="🇫🇷" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇫🇷</span>
+                                        <span>Français</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="de" data-flag="🇩🇪" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇩🇪</span>
+                                        <span>Deutsch</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="it" data-flag="🇮🇹" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇮🇹</span>
+                                        <span>Italiano</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="pt" data-flag="🇵🇹" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇵🇹</span>
+                                        <span>Português</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="ar" data-flag="🇸🇦" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇸🇦</span>
+                                        <span>العربية</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="hi" data-flag="🇮🇳" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇮🇳</span>
+                                        <span>हिंदी</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="zh-CN" data-flag="🇨🇳" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇨🇳</span>
+                                        <span>中文</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="ja" data-flag="🇯🇵" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇯🇵</span>
+                                        <span>日本語</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="ko" data-flag="🇰🇷" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇰🇷</span>
+                                        <span>한국어</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="ru" data-flag="🇷🇺" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇷🇺</span>
+                                        <span>Русский</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="tr" data-flag="🇹🇷" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇹🇷</span>
+                                        <span>Türkçe</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="nl" data-flag="🇳🇱" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇳🇱</span>
+                                        <span>Nederlands</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="pl" data-flag="🇵🇱" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇵🇱</span>
+                                        <span>Polski</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="sv" data-flag="🇸🇪" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇸🇪</span>
+                                        <span>Svenska</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="da" data-flag="🇩🇰" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇩🇰</span>
+                                        <span>Dansk</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="fi" data-flag="🇫🇮" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇫🇮</span>
+                                        <span>Suomi</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="no" data-flag="🇳🇴" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇳🇴</span>
+                                        <span>Norsk</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="th" data-flag="🇹🇭" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇹🇭</span>
+                                        <span>ไทย</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="vi" data-flag="🇻🇳" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇻🇳</span>
+                                        <span>Tiếng Việt</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="id" data-flag="🇮🇩" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇮🇩</span>
+                                        <span>Bahasa Indonesia</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="ms" data-flag="🇲🇾" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇲🇾</span>
+                                        <span>Bahasa Melayu</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="he" data-flag="🇮🇱" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇮🇱</span>
+                                        <span>עברית</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="cs" data-flag="🇨🇿" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇨🇿</span>
+                                        <span>Čeština</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="hu" data-flag="🇭🇺" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇭🇺</span>
+                                        <span>Magyar</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="ro" data-flag="🇷🇴" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇷🇴</span>
+                                        <span>Română</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="bg" data-flag="🇧🇬" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇧🇬</span>
+                                        <span>Български</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="hr" data-flag="🇭🇷" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇭🇷</span>
+                                        <span>Hrvatski</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="sk" data-flag="🇸🇰" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇸🇰</span>
+                                        <span>Slovenčina</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="sl" data-flag="🇸🇮" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇸🇮</span>
+                                        <span>Slovenščina</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="el" data-flag="🇬🇷" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇬🇷</span>
+                                        <span>Ελληνικά</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="uk" data-flag="🇺🇦" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇺🇦</span>
+                                        <span>Українська</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="ca" data-flag="🇪🇸" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇪🇸</span>
+                                        <span>Català</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="fa" data-flag="🇮🇷" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇮🇷</span>
+                                        <span>فارسی</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="ur" data-flag="🇵🇰" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇵🇰</span>
+                                        <span>اردو</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="bn" data-flag="🇧🇩" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇧🇩</span>
+                                        <span>বাংলা</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="ta" data-flag="🇮🇳" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇮🇳</span>
+                                        <span>தமிழ்</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="te" data-flag="🇮🇳" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇮🇳</span>
+                                        <span>తెలుగు</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="kn" data-flag="🇮🇳" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇮🇳</span>
+                                        <span>ಕನ್ನಡ</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="ml" data-flag="🇮🇳" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇮🇳</span>
+                                        <span>മലയാളം</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="gu" data-flag="🇮🇳" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇮🇳</span>
+                                        <span>ગુજરાતી</span>
+                                    </div>
+                                    <div class="lang-option" data-lang="pa" data-flag="🇮🇳" style="padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">
+                                        <span style="font-size: 20px;">🇮🇳</span>
+                                        <span>ਪੰਜਾਬੀ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="hidemobile"><a data-bs-toggle="offcanvas" href="#offcanvasExample"
+                                class="btn-round- btn-br bg-btn2"><i class="fas fa-phone-alt"></i></a></li>
+                        <li class="hidemobile"><a href="get-quote.html" class="btn-br bg-btn3 btshad-b2 lnk">Request
+                                A
+                                Quote <span class="circle"></span></a> </li>
+
+                        <li class="hidedesktop"><a data-bs-toggle="offcanvas" href="#offcanvasExample"
+                                class="btn-round- btn-br bg-btn2"><i class="fas fa-phone-alt"></i></a></li>
+                        <li class="navm- hidedesktop"> <a class="toggle" href="#"><span></span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Mobile Menu-->
+            <nav id="main-nav">
+                <ul class="nav-list">
+                    <li class="sbmenu">
+                        <a href="/" class="menu-links">Home</a>
+                    </li>
+
+                    <li class="sbmenu rpdropdown">
+                        <a href="#" class="menu-links">About</a>
+                        <div class="nx-dropdown menu-dorpdown">
+                            <div class="sub-menu-section">
+                                <div class="sub-menu-center-block">
+                                    <div class="sub-menu-column smfull">
+                                        <ul style="list-style: none; padding: 0; margin-top: -20px;">
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="about-2.html">About</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="mission-vision.html">Our Mission & Vision</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="development-process.html">Development Process</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li class="sbmenu rpdropdown">
+                        <a href="#" class="menu-links">Software </a>
+                        <div class="nx-dropdown menu-dorpdown">
+                            <div class="sub-menu-section">
+                                <div class="sub-menu-center-block">
+                                    <div class="sub-menu-column smfull">
+                                        <ul style="list-style: none; margin-top: -20px;">
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="zoho-books.html">Zoho Books</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="zoho-people.html">Zoho People</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="zoho-crm.html">Zoho CRM</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="zoho-creator.html">Zoho Creator</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="zoho-payroll.html">Zoho Payroll</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="zoho-inventory.html">Zoho Inventory</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="zoho-one.html">Zoho One</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="sbmenu rpdropdown">
+                        <a href="#" class="menu-links">Website Development </a>
+                        <div class="nx-dropdown menu-dorpdown">
+                            <div class="sub-menu-section">
+                                <div class="sub-menu-center-block">
+                                    <div class="sub-menu-column smfull">
+                                        <ul style="list-style: none; padding: 0; margin-top: -20px;">
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="custom-website-development.html">Custom Website</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="ecommerce-website.html">E-commerce Website</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="cms-development.html">CMS Development (WordPress)</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="web-app-development.html">Web Application Development</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="web-app-development.html">App Development</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+
+                    <li class="sbmenu rpdropdown">
+                        <a href="#" class="menu-links">Resource </a>
+                        <div class="nx-dropdown menu-dorpdown">
+                            <div class="sub-menu-section">
+                                <div class="sub-menu-center-block">
+                                    <div class="sub-menu-column smfull">
+                                        <ul style="list-style: none; padding: 0; margin-top: -20px;">
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="case-study.html">Case Study</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="tech-articles.html">Tech Articles</a>
+                                            </li>
+
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="career.html">Career</a>
+                                            </li>
+                                            <li style="border-bottom: 1px solid #ccc; padding: 5px 0;">
+                                                <a href="faq.html">FAQ</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+                <ul class="bottom-nav">
+                    <li class="prb">
+                        <a href="tel:+11111111111">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 384">
+                                <path
+                                    d="M353.188,252.052c-23.51,0-46.594-3.677-68.469-10.906c-10.719-3.656-23.896-0.302-30.438,6.417l-43.177,32.594
+                              c-50.073-26.729-80.917-57.563-107.281-107.26l31.635-42.052c8.219-8.208,11.167-20.198,7.635-31.448
+                              c-7.26-21.99-10.948-45.063-10.948-68.583C132.146,13.823,118.323,0,101.333,0H30.813C13.823,0,0,13.823,0,30.813
+                              C0,225.563,158.438,384,353.188,384c16.99,0,30.813-13.823,30.813-30.813v-70.323C384,265.875,370.177,252.052,353.188,252.052z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="prb">
+                        <a href="mailto:contact@shyphan.com">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                <path d="M0 0h24v24H0z" fill="none" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="prb">
+                        <a href="skype:niwax.company?call">
+                            <svg enable-background="new 0 0 24 24" height="18" viewBox="0 0 24 24" width="18"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="m23.309 14.547c1.738-7.81-5.104-14.905-13.139-13.543-4.362-2.707-10.17.352-10.17 5.542 0 1.207.333 2.337.912 3.311-1.615 7.828 5.283 14.821 13.311 13.366 5.675 3.001 11.946-2.984 9.086-8.676zm-7.638 4.71c-2.108.867-5.577.872-7.676-.227-2.993-1.596-3.525-5.189-.943-5.189 1.946 0 1.33 2.269 3.295 3.194.902.417 2.841.46 3.968-.3 1.113-.745 1.011-1.917.406-2.477-1.603-1.48-6.19-.892-8.287-3.483-.911-1.124-1.083-3.107.037-4.545 1.952-2.512 7.68-2.665 10.143-.768 2.274 1.76 1.66 4.096-.175 4.096-2.207 0-1.047-2.888-4.61-2.888-2.583 0-3.599 1.837-1.78 2.731 2.466 1.225 8.75.816 8.75 5.603-.005 1.992-1.226 3.477-3.128 4.253z" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!--End Header -->
+
+    <!--Start sidebar -->
+    <div class="niwaxofcanvas offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample">
+        <div class="offcanvas-body">
+            <div class="cbtn animation">
+                <div class="btnclose"> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button></div>
+            </div>
+
+            <div class="form-block sidebarform">
+                <h4>Request A Quote</h4>
+
+                <form id="webform1030997000000474013_sidebar" action="https://crm.zoho.in/crm/WebToLeadForm"
+                    name="WebToLeads1030997000000474013_sidebar" method="POST" accept-charset="UTF-8"
+                    target="zohosubmit_iframe_sidebar" onsubmit="return zc_submit_sidebar(event)">
+
+                    <!-- Zoho required hidden fields -->
+                    <input type="text" style="display:none;" name="xnQsjsdp"
+                        value="f16ce13a93e1a1b54f1a3a6d56cb1fec8c3a139aa675f0c41dce9435a5dc4b6e">
+                    <input type="hidden" name="zc_gad" id="zc_gad_sidebar" value="">
+                    <input type="text" style="display:none;" name="xmIwtLD"
+                        value="11a94d3377ef1f7d53c0e02acb15716293de268fdf21d5cf503d03731c2419a2f49e82ce44aefb6cbdaa5286a6bc84b7">
+                    <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
+                    <input type="text" style="display:none;" name="returnURL"
+                        value="https://www.shyphan.com/thank-you.html">
+
+                    <!-- Your UI fields -->
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <input class="rt-input form-control" type="text" id="fullName_sidebar"
+                                placeholder="Enter name">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <input class="rt-input form-control" type="email" name="Email" placeholder="Enter email"
+                                maxlength="100">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <input class="rt-input form-control" type="text" name="Company" placeholder="Enter company"
+                                maxlength="100">
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <input class="rt-input form-control" type="text" name="Phone" placeholder="Enter mobile"
+                                maxlength="30">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="rt-input form-control" id="message" rows="5"
+                            placeholder="Enter your message"></textarea>
+                    </div>
+
+                    <!-- Zoho mapped fields -->
+                    <input type="hidden" name="First Name" id="first_name_sidebar">
+                    <input type="hidden" name="Last Name" id="last_name_sidebar">
+                    <input type="hidden" name="Company" id="company_sidebar" value="N/A">
+                    <input type="hidden" name="Lead Source" value="Website - Sidebar Request Quote">
+                    <input type="hidden" name="Description" id="description_sidebar">
+
+                    <!-- UTM / tracking -->
+                    <input type="hidden" name="utm_source" id="utm_source_sidebar">
+                    <input type="hidden" name="utm_medium" id="utm_medium_sidebar">
+                    <input type="hidden" name="utm_campaign" id="utm_campaign_sidebar">
+                    <input type="hidden" name="utm_term" id="utm_term_sidebar">
+                    <input type="hidden" name="utm_content" id="utm_content_sidebar">
+                    <input type="hidden" name="gclid" id="gclid_hidden_sidebar">
+                    <input type="hidden" name="page_url" id="page_url_sidebar">
+                    <input type="hidden" name="referrer" id="referrer_sidebar">
+                    <input type="hidden" name="user_agent" id="user_agent_sidebar">
+                    <input type="hidden" name="timezone" id="timezone_sidebar">
+
+                    <button type="submit" id="form-submit" class="btn lnk btn-main bg-btn">
+                        Submit <span class="circle"></span>
+                    </button>
+
+                </form>
+
+                <!-- hidden iframe catches Zoho redirect so page doesn't navigate -->
+                <iframe name="zohosubmit_iframe_sidebar" id="zohosubmit_iframe_sidebar" style="display:none;"></iframe>
+
+                <!-- Same-page confirmation -->
+                <div id="sidebar-thanks" style="display:none; text-align:center; padding:14px 6px; font-weight:600;">
+                    Contact you shortly
+                </div>
+            </div>
+
+            <div class="getintouchblock mt30">
+                <h4>Get In Touch</h4>
+                <p class="mt10">Please fill out the form below if you have a plan or project in mind that you'd like
+                    to
+                    share with us.</p>
+                <div class="media mt15">
+                    <div class="icondive"><img src="images/icons/call.svg" alt="icon"></div>
+                    <div class="media-body getintouchinfo">
+                        <a href="tel:+919565153545">+91-9565153545 <span>Mon-Sat 9am - 6pm</span></a>
+                    </div>
+                </div>
+                <div class="media mt15">
+                    <div class="icondive"><img src="images/icons/whatsapp.svg" alt="icon"></div>
+                    <div class="media-body getintouchinfo">
+                        <a href="tel:+919565153545">+91-9565153545 <span>Mon-Sat 9am - 6pm</span></a>
+                    </div>
+                </div>
+                <div class="media mt15">
+                    <div class="icondive"><img src="images/icons/call.svg" alt="icon"></div>
+                    <div class="media-body getintouchinfo">
+                        <a href="tel:+573028500182">+57 302 850-0182 <span>Colombia</span></a>
+                    </div>
+                </div>
+                <div class="media mt15">
+                    <div class="icondive"><img src="images/icons/mail.svg" alt="icon"></div>
+                    <div class="media-body getintouchinfo">
+                        <a href="mailto:contact@shyphan.com">contact@shyphan.com <span>Online Support</span></a>
+                    </div>
+                </div>
+                <div class="media mt15">
+                    <div class="icondive"><img src="images/icons/map.svg" alt="icon"></div>
+                    <div class="media-body getintouchinfo">
+                        <a href="mailto:contact@shyphan.com">UGB04, Tower T2, NX ONE, Noida, 20136<span>Visit Our
+                                Office</span></a>
+                    </div>
+                </div>
+                <div class="media mt15">
+                    <div class="icondive"><img src="images/icons/map.svg" alt="icon"></div>
+                    <div class="media-body getintouchinfo">
+                        <a href="mailto:contact@shyphan.com">Cr 42 No 7A Sur 92, Balsos de Oviedo, Poblado, Medellin, Colombia<span>Visit Our
+                                Office</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-data mt30">
+                <h4>Follow Us On:</h4>
+                <div class="social-media-linkz mt10">
+                    <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
+                    <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
+                    <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
+                    <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="javascript:void(0)" target="blank"><i class="fab fa-youtube"></i></a>
+                    <a href="javascript:void(0)" target="blank"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end sidebar -->
+
+    
+        <main class="placeholder-page" style="padding:120px 0; background:#f7f9fc;">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <h1 class="display-4 mb-4">Blog (Right Sidebar)</h1>
+                        <p class="lead">This page is currently being prepared. Please check back soon for detailed content.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+<!--Start Footer-->
+    <footer class="dark-footer dg-bg--1 pt60 nshape dark-footer-1">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-4 col-sm-6  ftr-brand-pp">
+                    <a class="navbar-brand mb30 mt30" href="#"> <img style="height: 57px; width: 240px;"
+                            src="images/logo/black-logo-removebg-preview.png" alt="Logo" width="100" /></a>
+                    <p>Stay updated with Shyphan, your trusted partner in innovative web development.
+                    </p>
+                    <div class="mt20">
+                        <p><span><i class="fas fa-map-marker-alt"></i></span> <span> UG B04, Tower 3, NX ONE, Noida, Uttar Pradesh 201301</span></p>
+                        <p class="mt10"><span><i class="fas fa-map-marker-alt"></i></span> <span> Cr 42 No 7A Sur 92, Balsos de Oviedo, Poblado, Medellin, Colombia</span></p>
+                    </div>
+                    <div class="ff-social-icons mt30">
+                        <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
+                        <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
+                        <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <h5 class="mb30 mt30">Contact Us</h5>
+                    <ul class="footer-address-list ftr-details">
+                        <li>
+                            <span><i class="fas fa-envelope"></i></span>
+                            <p>Email <span> <a href="mailto:contact@shyphan.com">contact@shyphan.com</a></span>
+                            </p>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-phone-alt"></i></span>
+                            <p>Phone <span> <a href="tel:+919565153545">+91-9565153545</a></span></p>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-phone-alt"></i></span>
+                            <p>Phone <span> <a href="tel:+573028500182">+57 302 850-0182</a></span></p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-sm-6">
+                    <h5 class="mb30 mt30">Zoho Products</h5>
+                    <ul class="footer-address-list link-hover">
+                        <li><a href="zoho-books.html">Zoho Books</a></li>
+                        <li><a href="zoho-people.html">Zoho People</a></li>
+                        <li><a href="zoho-crm.html">Zoho CRM</a></li>
+                        <li><a href="zoho-creator.html">Zoho Creator</a></li>
+                        <li><a href="zoho-payroll.html">Zoho Payroll</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 footer-blog-">
+                    <h5 class="mb30 mt30">Support information</h5>
+                    <ul class="footer-address-list link-hover">
+                        <li><a href="get-quote.html">Forum Support</a></li>
+                        <li><a href="javascript:void(0)">Forum Support</a></li>
+                        <li><a href="javascript:void(0)">Forum Support</a></li>
+                        <li><a href="javascript:void(0)">Contact Us</a></li>
+                        <li><a href="javascript:void(0)">Pricing & Plans</a></li>
+                      
+                    </ul>
+                </div>
+
+            </div>
+            <div class="row end-footer-">
+                <div class="col-lg-6">
+                    <div class="footer-copyrights-">
+                        <p>© 2024-2025. All Rights Reserved By <a href="/" target="blank">Shyphan</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="footer-link-- link-hover">
+                        <li><a href="#">Privace &amp; Policy.</a></li>
+                        <li><a href="faq.html">Faq.</a></li>
+                        <li><a href="#">Terms.</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--End Footer-->
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/plugin.min.js"></script>
+    <script src="js/preloader.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <!--common script file-->
+    <script src="js/main.js"></script>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WV6859FK" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <script>
+        (function () {
+            // ---------- helpers (guarded so we don't double-define) ----------
+            if (!window.splitName) {
+                window.splitName = function (full) {
+                    full = (full || "").trim();
+                    if (!full) return { first: "", last: "" };
+                    const parts = full.split(/\s+/);
+                    return parts.length === 1
+                        ? { first: parts[0], last: parts[0] }
+                        : { first: parts.slice(0, -1).join(" "), last: parts.slice(-1)[0] };
+                };
+            }
+            if (!window.emailLooksValid) {
+                window.emailLooksValid = function (v) {
+                    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(v || "").trim());
+                };
+            }
+            if (!window.setTrackingIntoForm) {
+                window.setTrackingIntoForm = function (suffix) {
+                    const qs = new URLSearchParams(location.search);
+                    const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = v || ""; };
+                    set(`utm_source${suffix}`, qs.get("utm_source"));
+                    set(`utm_medium${suffix}`, qs.get("utm_medium"));
+                    set(`utm_campaign${suffix}`, qs.get("utm_campaign"));
+                    set(`utm_term${suffix}`, qs.get("utm_term"));
+                    set(`utm_content${suffix}`, qs.get("utm_content"));
+                    set(`gclid_hidden${suffix}`, qs.get("gclid"));
+                    set(`page_url${suffix}`, location.href);
+                    set(`referrer${suffix}`, document.referrer || "");
+                    set(`user_agent${suffix}`, navigator.userAgent || "");
+                    set(`timezone${suffix}`, (Intl.DateTimeFormat().resolvedOptions().timeZone || ""));
+                };
+            }
+
+            // ---------- sidebar: submit handler ----------
+            window.zc_submit_sidebar = function (e) {
+                const form = document.forms["WebToLeads1030997000000474013_sidebar"];
+                if (!form) return true;
+
+                // Split full name -> hidden fields
+                const full = document.getElementById("fullName_sidebar")?.value || "";
+                const { first, last } = splitName(full);
+                const f = document.getElementById("first_name_sidebar");
+                const l = document.getElementById("last_name_sidebar");
+                if (f) f.value = first;
+                if (l) l.value = last || first;
+
+                // Build Description from requirement + message
+                const req = document.getElementById("Dtype")?.value || "";
+                const msg = document.getElementById("message")?.value || "";
+                const descInput = document.getElementById("description_sidebar");
+                if (descInput) descInput.value = (req ? `Requirement: ${req}\n` : "") + (msg ? `Message: ${msg}` : "");
+
+                // Basic validation
+                const email = form["Email"]?.value || "";
+                const phone = form["Phone"]?.value || "";
+                if (!emailLooksValid(email)) { alert("Please enter a valid email address."); form["Email"].focus(); return false; }
+                if (!phone.trim()) { alert("Phone cannot be empty."); form["Phone"].focus(); return false; }
+                if (!(l?.value || "").trim()) { alert("Name is required."); document.getElementById("fullName_sidebar")?.focus(); return false; }
+
+                // GA4 (optional)
+                if (typeof gtag === "function") {
+                    gtag("event", "generate_lead", {
+                        value: 1,
+                        currency: "INR",
+                        form_id: "webform1030997000000474013_sidebar",
+                        method: "sidebar"
+                    });
+                }
+
+                // Button feedback (non-blocking)
+                const btn = document.getElementById("form-submit");
+                if (btn) { btn.disabled = true; btn.textContent = "Submitting..."; setTimeout(() => { btn.disabled = false; btn.textContent = "Submit"; }, 4000); }
+
+                // allow native POST to Zoho (to hidden iframe)
+                return true;
+            };
+
+            // Fill tracking on load
+            setTrackingIntoForm("_sidebar");
+
+            // Swap to "Contact you shortly" after the hidden iframe loads (Zoho response)
+            const sForm = document.forms["WebToLeads1030997000000474013_sidebar"];
+            const sIframe = document.getElementById("zohosubmit_iframe_sidebar");
+            const sThanks = document.getElementById("sidebar-thanks");
+            let sSubmitted = false;
+
+            if (sForm && sIframe) {
+                sForm.addEventListener("submit", function () { sSubmitted = true; });
+                sIframe.addEventListener("load", function () {
+                    if (!sSubmitted) return; // ignore initial blank load
+                    sSubmitted = false;
+                    sForm.reset();
+                    sForm.style.display = "none";
+                    if (sThanks) sThanks.style.display = "block";
+                });
+            }
+        })();
+    </script>
+
+
+    <!-- Language Selector JavaScript -->
+    <script>
+        (function() {
+            // Wait for Google Translate to load
+            function initLanguageSelector() {
+                const langBtn = document.getElementById('langBtn');
+                const langDropdown = document.getElementById('langDropdown');
+                const langOptions = document.querySelectorAll('.lang-option');
+                const currentFlag = document.getElementById('currentFlag');
+                const currentLang = document.getElementById('currentLang');
+                
+                if (!langBtn || !langDropdown) return;
+                
+                // Get saved language from localStorage
+                const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+                const savedFlag = localStorage.getItem('selectedFlag') || '🇺🇸';
+                const savedCode = localStorage.getItem('selectedCode') || 'EN';
+                
+                // Update button display
+                if (currentFlag) currentFlag.textContent = savedFlag;
+                if (currentLang) currentLang.textContent = savedCode;
+                
+                                // Toggle dropdown with smooth animation
+                langBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const isVisible = langDropdown.style.display === 'block';
+                    if (isVisible) {
+                        langDropdown.style.opacity = '0';
+                        langDropdown.style.transform = 'translateY(-10px)';
+                        setTimeout(() => {
+                            langDropdown.style.display = 'none';
+                        }, 300);
+                    } else {
+                        langDropdown.style.display = 'block';
+                        // Force reflow to trigger transition
+                        langDropdown.offsetHeight;
+                        langDropdown.style.opacity = '1';
+                        langDropdown.style.transform = 'translateY(0)';
+                    }
+                });
+                
+                                // Close dropdown when clicking outside with smooth animation
+                // Use setTimeout to prevent immediate closing when opening
+                let clickTimeout;
+                document.addEventListener('click', function(e) {
+                    clearTimeout(clickTimeout);
+                    clickTimeout = setTimeout(function() {
+                        if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+                            if (langDropdown.style.display === 'block') {
+                                langDropdown.style.opacity = '0';
+                                langDropdown.style.transform = 'translateY(-10px)';
+                                setTimeout(() => {
+                                    langDropdown.style.display = 'none';
+                                }, 300);
+                            }
+                        }
+                    }, 10);
+                });
+                
+                // Handle language selection
+                langOptions.forEach(option => {
+                    option.addEventListener('click', function() {
+                        const lang = this.getAttribute('data-lang');
+                        const flag = this.getAttribute('data-flag');
+                        const code = lang.toUpperCase().substring(0, 2);
+                        
+                        // Update button
+                        if (currentFlag) currentFlag.textContent = flag;
+                        if (currentLang) currentLang.textContent = code;
+                        
+                        // Save to localStorage
+                        localStorage.setItem('selectedLanguage', lang);
+                        localStorage.setItem('selectedFlag', flag);
+                        localStorage.setItem('selectedCode', code);
+                        
+                        // Close dropdown with smooth animation
+                        langDropdown.style.opacity = '0';
+                        langDropdown.style.transform = 'translateY(-10px)';
+                        setTimeout(() => {
+                            langDropdown.style.display = 'none';
+                        }, 300);
+                        
+                        // Trigger Google Translate
+                        function triggerTranslation(langCode) {
+                            // Method 1: Try to find and use Google Translate select
+                            const select = document.querySelector('.goog-te-combo');
+                            if (select) {
+                                select.value = langCode;
+                                select.dispatchEvent(new Event('change'));
+                                return true;
+                            }
+                            
+                            // Method 2: Direct Google Translate API call
+                            if (window.google && window.google.translate && window.google.translate.TranslateElement) {
+                                try {
+                                    const frame = document.querySelector('.goog-te-banner-frame');
+                                    if (frame && frame.contentWindow) {
+                                        const select = frame.contentWindow.document.querySelector('.goog-te-combo');
+                                        if (select) {
+                                            select.value = langCode;
+                                            select.dispatchEvent(new Event('change'));
+                                            return true;
+                                        }
+                                    }
+                                } catch(e) {}
+                            }
+                            
+                            // Method 3: Use cookie-based approach
+                            const cookieName = 'googtrans';
+                            const cookieValue = '/en/' + langCode;
+                            document.cookie = cookieName + '=' + cookieValue + '; path=/; max-age=31536000';
+                            location.reload();
+                            return false;
+                        }
+                        
+                        // Try to trigger translation
+                        if (!triggerTranslation(lang)) {
+                            // If translation not triggered, reload page with language cookie
+                            setTimeout(function() {
+                                if (!document.querySelector('.goog-te-combo')) {
+                                    document.cookie = 'googtrans=/en/' + lang + '; path=/; max-age=31536000';
+                                    location.reload();
+                                }
+                            }, 500);
+                        }
+                    });
+                });
+                
+                // If language was previously selected, apply it
+                if (savedLang !== 'en' && window.google && window.google.translate) {
+                    setTimeout(function() {
+                        const select = document.querySelector('.goog-te-combo');
+                        if (select) {
+                            select.value = savedLang;
+                            select.dispatchEvent(new Event('change'));
+                        }
+                    }, 500);
+                }
+            }
+            
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(initLanguageSelector, 100);
+                });
+            } else {
+                setTimeout(initLanguageSelector, 100);
+            }
+            
+            // Also initialize when Google Translate loads
+            if (typeof googleTranslateElementInit !== 'undefined') {
+                const originalInit = googleTranslateElementInit;
+                window.googleTranslateElementInit = function() {
+                    if (originalInit) originalInit();
+                    setTimeout(initLanguageSelector, 1000);
+                };
+            }
+            
+            // Retry initialization if elements not found
+            let initRetries = 0;
+            const maxRetries = 10;
+            function retryInit() {
+                if (initRetries < maxRetries) {
+                    const langBtn = document.getElementById('langBtn');
+                    const langDropdown = document.getElementById('langDropdown');
+                    if (!langBtn || !langDropdown) {
+                        initRetries++;
+                        setTimeout(function() {
+                            initLanguageSelector();
+                            retryInit();
+                        }, 500);
+                    }
+                }
+            }
+            setTimeout(retryInit, 1000);
+            
+            // Hide Google Translate banner repeatedly
+            function hideTranslateBanner() {
+                const banners = document.querySelectorAll('.goog-te-banner-frame, .goog-te-banner, .skiptranslate, iframe.goog-te-banner-frame');
+                banners.forEach(banner => {
+                    banner.style.display = 'none !important';
+                    banner.style.visibility = 'hidden !important';
+                    banner.style.height = '0 !important';
+                    banner.style.width = '0 !important';
+                    banner.style.opacity = '0 !important';
+                });
+                
+                // Remove top padding that Google Translate adds
+                if (document.body) {
+                    document.body.style.top = '0 !important';
+                    document.body.style.paddingTop = '0 !important';
+                }
+            }
+            
+            // Hide banner on load and continuously
+            hideTranslateBanner();
+            setInterval(hideTranslateBanner, 500);
+            
+            // Hide banner when DOM changes (Google Translate injects elements)
+            const observer = new MutationObserver(function(mutations) {
+                hideTranslateBanner();
+            });
+            
+            if (document.body) {
+                observer.observe(document.body, {
+                    childList: true,
+                    subtree: true
+                });
+            }
+        })();
+    </script>
+
+    <!-- Zoho CRM Integration Script -->
+    <script src="js/zoho-crm-integration.js"></script>
+
+    <!-- Zoho WebForm Analytics (include ONCE per page; kept as provided) -->
+    <script id="wf_anal"
+        src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=36d079732b53cfec8ff3a63e3492c2a6195d4320077bd97e2a576dc49a11901ffbf352d196461d3046e80e1d9bed77e3gid65151fdd076d7da217ab0e76ee25da556f9ca3f6f88d9e094183287cac94bcc9gid892c2466bdd93c88793126f522ec4109de72d0990df88a4608d6bfc34bf9d141gid746845c91d476716ef89b57c5d2e4b4ea70b7abfac520678a3deb7b29cb87bd3&tw=4ca93b722df015027cb74a89d6062ae02f614c63f898fc9dbf0a51c1bbb517b0"></script>
+
+</body>
+
+</html>
