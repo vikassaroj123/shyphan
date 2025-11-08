@@ -1118,26 +1118,56 @@
                 if (currentFlag) currentFlag.textContent = savedFlag;
                 if (currentLang) currentLang.textContent = savedCode;
                 
-                                // Toggle dropdown with smooth animation
+                // Prevent multiple event listeners
+                if (langBtn._langSelectorInitialized) return;
+                langBtn._langSelectorInitialized = true;
+                
+                // Track dropdown state (stored on button for scope access)
+                langBtn._isDropdownOpen = false;
+                langBtn._clickTimeout = null;
+                
+                // Toggle dropdown with smooth animation
                 langBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
                     e.stopPropagation();
-                    const isVisible = langDropdown.style.display === 'block';
-                    if (isVisible) {
-                        langDropdown.style.opacity = '0';
-                        langDropdown.style.transform = 'translateY(-10px)';
-                        setTimeout(() => {
-                            langDropdown.style.display = 'none';
-                        }, 300);
-                    } else {
-                        langDropdown.style.display = 'block';
-                        // Force reflow to trigger transition
-                        langDropdown.offsetHeight;
-                        langDropdown.style.opacity = '1';
-                        langDropdown.style.transform = 'translateY(0)';
+                    
+                    // Clear any pending timeout
+                    if (langBtn._clickTimeout) {
+                        clearTimeout(langBtn._clickTimeout);
+                        langBtn._clickTimeout = null;
                     }
+                    
+                    // Small delay to prevent immediate closing
+                    langBtn._clickTimeout = setTimeout(function() {
+                        if (langBtn._isDropdownOpen) {
+                            // Close dropdown
+                            langBtn._isDropdownOpen = false;
+                            langDropdown.style.opacity = '0';
+                            langDropdown.style.transform = 'translateY(-10px)';
+                            setTimeout(() => {
+                                langDropdown.style.display = 'none';
+                            }, 300);
+                        } else {
+                            // Open dropdown
+                            langBtn._isDropdownOpen = true;
+                            langDropdown.style.display = 'block';
+                            // Force reflow to trigger transition
+                            requestAnimationFrame(function() {
+                                langDropdown.offsetHeight;
+                                langDropdown.style.opacity = '1';
+                                langDropdown.style.transform = 'translateY(0)';
+                            });
+                        }
+                        langBtn._clickTimeout = null;
+                    }, 50);
                 });
                 
-                                // Dropdown stays open until button is clicked again or language is selected
+                // Prevent dropdown from closing when clicking inside it
+                langDropdown.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+                
+                // Dropdown stays open until button is clicked again or language is selected
                 // Removed click-outside-to-close functionality per user request
                 
                 // Handle language selection
@@ -1157,6 +1187,7 @@
                         localStorage.setItem('selectedCode', code);
                         
                         // Close dropdown with smooth animation
+                        if (langBtn) langBtn._isDropdownOpen = false;
                         langDropdown.style.opacity = '0';
                         langDropdown.style.transform = 'translateY(-10px)';
                         setTimeout(() => {
