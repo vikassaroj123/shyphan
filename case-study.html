@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Content Marketing - Shyphan | Strategic Content Creation & Marketing</title>
-    <meta name="description"
-        content="Shyphan is your trusted partner in delivering innovative IT services. We specialize in custom software development, dynamic website creation, and result-driven digital marketing strategies. Our resources empower businesses with the tools and insights needed to excel in the digital landscape. At Shyphan, we’re dedicated to shaping a smarter tomorrow through cutting-edge technology and unmatched expertise.">
+    <title>Case Studies - Shyphan | Success Stories & Project Portfolio</title>
+    <meta name="description" content="Explore our case studies and success stories. See how Shyphan has helped businesses achieve their digital transformation goals.">
     <meta name="keywords" content="Creative Agency, Marketing Agency">
     <meta name="author" content="rajesh-doot">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-cosublor" content="#fff">
     <!--website-favicon-->
     <link href="images/favicon.png" rel="icon">
     <!--plugin-css-->
@@ -25,8 +25,17 @@
     <link href="css/darkmode.css" rel="stylesheet">
 
     <!-- Google tag (gtag.js) -->
-    
-    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NW3KSNSQN2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NW3KSNSQN2');
+        gtag('config', 'AW-17557804164');
+    </script>
+
+
     <!-- Google Translate Widget -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
@@ -39,112 +48,61 @@
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
 
-    <style>
-                /* Hide Google Translate Widget Completely */
-        #google_translate_element {
-            display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-            position: absolute !important;
-            left: -9999px !important;
-            top: -9999px !important;
-            width: 0 !important;
-            height: 0 !important;
-            pointer-events: none !important;
+<style>
+    /* Smooth backdrop */
+    .modal-backdrop {
+        opacity: 0;
+        transition: opacity .4s ease;
+    }
+
+    .modal-backdrop.show {
+        opacity: .35;
+    }
+
+    /* Dialog pop-in (scale + rise) */
+    #launchOfferModal.modal.fade .modal-dialog {
+        transform: translateY(12px) scale(.96);
+        opacity: 0;
+        transition: transform .38s cubic-bezier(.2, .8, .2, 1), opacity .38s ease;
+    }
+
+    #launchOfferModal.modal.show .modal-dialog {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    /* Optional: extra micro-pop for the card */
+    @keyframes offerPop {
+        from {
+            transform: translateY(16px) scale(.94);
+            opacity: 0;
         }
-        
-        /* Hide Google Translate Banner and Widget */
-        .goog-te-banner-frame,
-        .goog-te-banner,
-        .skiptranslate,
-        iframe.goog-te-banner-frame,
-        .goog-te-menu-frame,
-        .goog-te-menu-value,
-        .goog-te-menu2,
-        .goog-te-ftab,
-        .goog-te-gadget,
-        .goog-te-gadget-simple {
-            display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-            height: 0 !important;
-            width: 0 !important;
-            position: absolute !important;
-            left: -9999px !important;
-            top: -9999px !important;
-            overflow: hidden !important;
+
+        to {
+            transform: translateY(0) scale(1);
+            opacity: 1;
         }
-        
-        /* Remove any spacing Google Translate adds */
-        body {
-            top: 0 !important;
-            padding-top: 0 !important;
+    }
+
+    #launchOfferModal .offer-card.anim-pop {
+        animation: offerPop .42s cubic-bezier(.2, .8, .2, 1) both;
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+
+        .modal-backdrop,
+        #launchOfferModal.modal.fade .modal-dialog,
+        #launchOfferModal.modal.show .modal-dialog,
+        #launchOfferModal .offer-card.anim-pop {
+            transition: none !important;
+            animation: none !important;
         }
-        
-        body.top {
-            top: 0 !important;
-            padding-top: 0 !important;
-        }
-        
-        body.skiptranslate {
-            top: 0 !important;
-            padding-top: 0 !important;
-        }
-        
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            #google_translate_element {
-                top: 70px !important;
-                right: 10px !important;
-                padding: 3px !important;
-            }
-        }
-        
-                /* Hide Google Translate banner completely */
-        .goog-te-banner-frame.skiptranslate {
-            position: absolute; left: -9999px; opacity: 0; pointer-events: none;
-        }
-        
-        .goog-te-banner-frame {
-            position: absolute; left: -9999px; opacity: 0; pointer-events: none;
-        }
-        
-        .goog-te-banner {
-            position: absolute; left: -9999px; opacity: 0; pointer-events: none;
-        }
-        
-        .skiptranslate {
-            position: absolute; left: -9999px; opacity: 0; pointer-events: none;
-        }
-        
-        /* Hide Google Translate top bar */
-        body {
-            top: 0 !important;
-        }
-        
-        body > .skiptranslate {
-            position: absolute; left: -9999px; opacity: 0; pointer-events: none;
-        }
-        
-        /* Hide iframe banner */
-        iframe.goog-te-banner-frame {
-            position: absolute; left: -9999px; opacity: 0; pointer-events: none;
-            visibility: hidden !important;
-            height: 0 !important;
-            width: 0 !important;
-            opacity: 0 !important;
-        }
-        
-        /* Style the select dropdown */
-        .goog-te-combo {
-            margin: 0 !important;
-            padding: 5px 10px !important;
-            border: 1px solid #ddd !important;
-            border-radius: 4px !important;
-            font-size: 14px !important;
-        }
-    
+    }
+
+
     /* Smooth scroll transitions for navbar */
     .main-header {
         transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease !important;
@@ -161,7 +119,11 @@
     .nav-bg-b .custom-nav .nav-list li a.menu-links,
     .top-header .navbar .custom-btn:focus,
     .top-header .navbar .custom-btn:hover {
-        color: white !important;
+        color: #050748 !important;
+    }
+    
+    body.inner-page .nav-bg-b .custom-nav .nav-list li a.menu-links {
+        color: #050748 !important;
     }
 
     .main-header.sticky {
@@ -185,140 +147,100 @@
         background: rgba(0, 0, 0, 0.1) !important;
         border: 1.5px solid rgba(0, 0, 0, 0.3) !important;
     }
+    
+    /* Language Selector Styles */
+    .language-selector-wrapper {
+        position: relative;
+    }
+    
+    .lang-btn {
+        background: rgba(255, 255, 255, 0.15) !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+        border-radius: 6px !important;
+        padding: 6px 10px !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        color: #fff !important;
+        font-size: 13px !important;
+        transition: all 0.3s ease !important;
+        font-weight: 600 !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+        backdrop-filter: blur(5px) !important;
+    }
+    
+    .lang-btn:hover {
+        background: rgba(255, 255, 255, 0.25) !important;
+        border-color: rgba(255, 255, 255, 0.4) !important;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15) !important;
+        transform: translateY(-1px) !important;
+    }
+    
+    /* Make language selector visible on dark backgrounds */
+    .dark-header .lang-btn,
+    .dark-header-nav .lang-btn,
+    header[class*="dark"] .lang-btn {
+        background: rgba(255, 255, 255, 0.15) !important;
+        border-color: rgba(255, 255, 255, 0.3) !important;
+        color: #fff !important;
+    }
+    
+    /* Make language selector visible on light backgrounds */
+    .light-header .lang-btn,
+    .light-header-nav .lang-btn,
+    header:not([class*="dark"]) .lang-btn {
+        background: rgba(0, 0, 0, 0.08) !important;
+        border-color: rgba(0, 0, 0, 0.15) !important;
+        color: #333 !important;
+    }
+    
+    .light-header .lang-btn:hover,
+    .light-header-nav .lang-btn:hover,
+    header:not([class*="dark"]) .lang-btn:hover {
+        background: rgba(0, 0, 0, 0.12) !important;
+        border-color: rgba(0, 0, 0, 0.2) !important;
+    }
+    
+    /* Ensure visibility with text shadow */
+    .lang-btn .lang-code,
+    .lang-btn .lang-flag {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .light-header .lang-btn .lang-code,
+    .light-header .lang-btn .lang-flag {
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+    }
+    
+    .lang-flag {
+        font-size: 16px !important;
+        line-height: 1 !important;
+    }
+    
+    .lang-code {
+        font-weight: 600 !important;
+        letter-spacing: 0.5px !important;
+    }
+    
+    .lang-dropdown {
+        max-height: 400px;
+        overflow-y: auto;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .lang-dropdown[style*="block"] {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
 </style>
-    <style>
-        /* Language Selector Styles */
-        .language-selector-wrapper {
-            position: relative;
-        }
-        
-        .lang-btn {
-            background: rgba(255, 255, 255, 0.15) !important;
-            border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
-            border-radius: 6px !important;
-            padding: 6px 10px !important;
-            cursor: pointer !important;
-            display: flex !important;
-            align-items: center !important;
-            gap: 6px !important;
-            color: #fff !important;
-            font-size: 13px !important;
-            transition: all 0.3s ease !important;
-            font-weight: 600 !important;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-            backdrop-filter: blur(5px) !important;
-        }
-        
-        .lang-btn:hover {
-            background: rgba(255, 255, 255, 0.25) !important;
-            border-color: rgba(255, 255, 255, 0.4) !important;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15) !important;
-            transform: translateY(-1px) !important;
-        }
-        
-        /* Make language selector visible on dark backgrounds */
-        .dark-header .lang-btn,
-        .dark-header-nav .lang-btn,
-        header[class*="dark"] .lang-btn {
-            background: rgba(255, 255, 255, 0.15) !important;
-            border-color: rgba(255, 255, 255, 0.3) !important;
-            color: #fff !important;
-        }
-        
-        /* Make language selector visible on light backgrounds */
-        .light-header .lang-btn,
-        .light-header-nav .lang-btn,
-        header:not([class*="dark"]) .lang-btn {
-            background: rgba(0, 0, 0, 0.08) !important;
-            border-color: rgba(0, 0, 0, 0.15) !important;
-            color: #333 !important;
-        }
-        
-        .light-header .lang-btn:hover,
-        .light-header-nav .lang-btn:hover,
-        header:not([class*="dark"]) .lang-btn:hover {
-            background: rgba(0, 0, 0, 0.12) !important;
-            border-color: rgba(0, 0, 0, 0.2) !important;
-        }
-        
-        /* Ensure visibility with text shadow */
-        .lang-btn .lang-code,
-        .lang-btn .lang-flag {
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
-        }
-        
-        .light-header .lang-btn .lang-code,
-        .light-header .lang-btn .lang-flag {
-            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
-        }
-        
-        .lang-flag {
-            font-size: 16px !important;
-            line-height: 1 !important;
-        }
-        
-        .lang-code {
-            font-weight: 600 !important;
-            letter-spacing: 0.5px !important;
-        }
-        
-                .lang-dropdown {
-            max-height: 400px;
-            overflow-y: auto;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            pointer-events: none;
-        }
-        
-        .lang-dropdown[style*="block"] {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-        
-        .lang-dropdown::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .lang-dropdown::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        
-        .lang-dropdown::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 3px;
-        }
-        
-        .lang-dropdown::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-        
-        @media (max-width: 768px) {
-            .language-selector-wrapper {
-                margin-right: 10px;
-            }
-            
-            .lang-btn {
-                padding: 5px 8px !important;
-                font-size: 12px !important;
-            }
-            
-            .lang-flag {
-                font-size: 14px !important;
-            }
-        }
-    </style>
-
-<!-- WhatsApp Button -->
-<a href="https://wa.me/+919565153545" target="_blank" class="whatsapp-button">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
 
 
-<body class="inner-page">
-    <div id="google_translate_element" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;"></div>
-    <!--Start Header -->
+<!--Start Header -->
     <header class="header-pr nav-bg-b main-header navfix fixed-top menu-white">
         <div class="container-fluid m-pad">
             <div class="menu-header">
@@ -825,49 +747,88 @@
             </div>
 
             <div class="form-block sidebarform">
-                <h4>Request
-                                A
-                                Quote</h4>
-                <form id="contactForm" data-bs-toggle="validator" class="shake mt20">
+                <h4>Request A Quote</h4>
+
+                <form id="webform1030997000000474013_sidebar" action="https://crm.zoho.in/crm/WebToLeadForm"
+                    name="WebToLeads1030997000000474013_sidebar" method="POST" accept-charset="UTF-8"
+                    target="zohosubmit_iframe_sidebar" onsubmit="return zc_submit_sidebar(event)">
+
+                    <!-- Zoho required hidden fields -->
+                    <input type="text" style="display:none;" name="xnQsjsdp"
+                        value="f16ce13a93e1a1b54f1a3a6d56cb1fec8c3a139aa675f0c41dce9435a5dc4b6e">
+                    <input type="hidden" name="zc_gad" id="zc_gad_sidebar" value="">
+                    <input type="text" style="display:none;" name="xmIwtLD"
+                        value="11a94d3377ef1f7d53c0e02acb15716293de268fdf21d5cf503d03731c2419a2f49e82ce44aefb6cbdaa5286a6bc84b7">
+                    <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
+                    <input type="text" style="display:none;" name="returnURL"
+                        value="https://www.shyphan.com/thank-you.html">
+
+                    <!-- Your UI fields -->
                     <div class="row">
                         <div class="form-group col-sm-12">
-                            <input type="text" id="name" placeholder="Enter name" data-error="Please fill Out">
-                            
+                            <input class="rt-input form-control" type="text" id="fullName_sidebar"
+                                placeholder="Enter name">
                         </div>
                         <div class="form-group col-sm-12">
-                            <input type="email" id="email" placeholder="Enter email">
-                            
+                            <input class="rt-input form-control" type="email" name="Email" placeholder="Enter email"
+                                maxlength="100">
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="form-group col-sm-12">
-                            <input type="text" id="company" placeholder="Enter company" data-error="Please fill Out">
-                            
+                            <input class="rt-input form-control" type="text" name="Company" placeholder="Enter company"
+                                maxlength="100">
                         </div>
                         <div class="form-group col-sm-12">
-                            <input type="text" id="mobile" placeholder="Enter mobile"
-                                data-error="Please fill Out">
-                            
-                        </div>
-                        <div class="form-group col-sm-12">
-                            
-                            
+                            <input class="rt-input form-control" type="text" name="Phone" placeholder="Enter mobile"
+                                maxlength="30">
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <textarea id="message" rows="5" placeholder="Enter your message"></textarea>
-                        
+                        <textarea class="rt-input form-control" id="message" rows="5"
+                            placeholder="Enter your message"></textarea>
                     </div>
-                    <button type="submit" id="form-submit" class="btn lnk btn-main bg-btn">Submit <span
-                            class="circle"></span></button>
-                    
-                    
+
+                    <!-- Zoho mapped fields -->
+                    <input type="hidden" name="First Name" id="first_name_sidebar">
+                    <input type="hidden" name="Last Name" id="last_name_sidebar">
+                    <input type="hidden" name="Company" id="company_sidebar" value="N/A">
+                    <input type="hidden" name="Lead Source" value="Website - Sidebar Request Quote">
+                    <input type="hidden" name="Description" id="description_sidebar">
+
+                    <!-- UTM / tracking -->
+                    <input type="hidden" name="utm_source" id="utm_source_sidebar">
+                    <input type="hidden" name="utm_medium" id="utm_medium_sidebar">
+                    <input type="hidden" name="utm_campaign" id="utm_campaign_sidebar">
+                    <input type="hidden" name="utm_term" id="utm_term_sidebar">
+                    <input type="hidden" name="utm_content" id="utm_content_sidebar">
+                    <input type="hidden" name="gclid" id="gclid_hidden_sidebar">
+                    <input type="hidden" name="page_url" id="page_url_sidebar">
+                    <input type="hidden" name="referrer" id="referrer_sidebar">
+                    <input type="hidden" name="user_agent" id="user_agent_sidebar">
+                    <input type="hidden" name="timezone" id="timezone_sidebar">
+
+                    <button type="submit" id="form-submit" class="btn lnk btn-main bg-btn">
+                        Submit <span class="circle"></span>
+                    </button>
+
                 </form>
+
+                <!-- hidden iframe catches Zoho redirect so page doesn't navigate -->
+                <iframe name="zohosubmit_iframe_sidebar" id="zohosubmit_iframe_sidebar" style="display:none;"></iframe>
+
+                <!-- Same-page confirmation -->
+                <div id="sidebar-thanks" style="display:none; text-align:center; padding:14px 6px; font-weight:600;">
+                    Contact you shortly
+                </div>
             </div>
 
             <div class="getintouchblock mt30">
                 <h4>Get In Touch</h4>
-                <p class="mt10">Please fill out the form below if you have a plan or project in mind that you'd like to
+                <p class="mt10">Please fill out the form below if you have a plan or project in mind that you'd like
+                    to
                     share with us.</p>
                 <div class="media mt15">
                     <div class="icondive"><img src="images/icons/call.svg" alt="icon"></div>
@@ -882,6 +843,12 @@
                     </div>
                 </div>
                 <div class="media mt15">
+                    <div class="icondive"><img src="images/icons/call.svg" alt="icon"></div>
+                    <div class="media-body getintouchinfo">
+                        <a href="tel:+573028500182">+57 302 850-0182 <span>Colombia</span></a>
+                    </div>
+                </div>
+                <div class="media mt15">
                     <div class="icondive"><img src="images/icons/mail.svg" alt="icon"></div>
                     <div class="media-body getintouchinfo">
                         <a href="mailto:contact@shyphan.com">contact@shyphan.com <span>Online Support</span></a>
@@ -890,17 +857,18 @@
                 <div class="media mt15">
                     <div class="icondive"><img src="images/icons/map.svg" alt="icon"></div>
                     <div class="media-body getintouchinfo">
-                        <a href="mailto:contact@shyphan.com">UGB04, Tower T2, NX ONE, Noida, 20136<span>Visit Our Office</span></a>
+                        <a href="mailto:contact@shyphan.com">UGB04, Tower T2, NX ONE, Noida, 20136<span>Visit Our
+                                Office</span></a>
                     </div>
                 </div>
-            <div class="media mt15">
+                <div class="media mt15">
                     <div class="icondive"><img src="images/icons/map.svg" alt="icon"></div>
                     <div class="media-body getintouchinfo">
                         <a href="mailto:contact@shyphan.com">Cr 42 No 7A Sur 92, Balsos de Oviedo, Poblado, Medellin, Colombia<span>Visit Our
                                 Office</span></a>
                     </div>
                 </div>
-                </div>
+            </div>
             <div class="contact-data mt30">
                 <h4>Follow Us On:</h4>
                 <div class="social-media-linkz mt10">
@@ -917,20 +885,21 @@
     <!--end sidebar -->
 
     <!--Breadcrumb Area-->
-    <section class="breadcrumb-area banner-2">
+    <section class="breadcrumb-area text-l banner-1">
         <div class="text-block">
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-lg-12 v-center">
-                        <div class="bread-inner">
+                        <div class="bread-inner text-center">
                             <div class="bread-menu">
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
-                                    <li><a href="#">Content Marketing</a></li>
+                                    <li><a href="#">Case Studies</a></li>
                                 </ul>
                             </div>
                             <div class="bread-title">
-                                <h2>Content Marketing</h2>
+                                <h2>Case Studies</h2>
+                                <p>Real success stories from our clients</p>
                             </div>
                         </div>
                     </div>
@@ -940,57 +909,295 @@
     </section>
     <!--End Breadcrumb-->
 
+    <!--Start About-->
     <section class="service pad-tb">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 block-1">
-                    <div class="common-heading text-l pr25">
-                        <h4>Content Marketing Services</h4>
-                        <p>At Shyphan, we deliver impactful content marketing services to help businesses build authority, engage their audience, and drive conversions. Our content strategies are designed to create meaningful connections and deliver measurable results.</p>
-                        <h5 class="mt20 mb10">Our Content Marketing Process</h5>
-                        <ul class="list-style-">
-                            <li><strong>Strategy Development:</strong> We create a customized content marketing strategy aligned with your business goals and target audience.</li>
-                            <li><strong>Content Creation:</strong> Our expert writers and designers produce high-quality content, including blog posts, articles, infographics, videos, and more.</li>
-                            <li><strong>Content Distribution:</strong> We strategically distribute your content across platforms such as blogs, social media, email, and third-party websites to maximize reach and engagement.</li>
-                            <li><strong>SEO Integration:</strong> We optimize your content with targeted keywords and best SEO practices to improve visibility and drive organic traffic.</li>
-                            <li><strong>Performance Tracking:</strong> Our team monitors content performance, analyzing metrics like engagement, shares, and conversions to refine strategies.</li>
-                            <li><strong>Ongoing Optimization:</strong> We continuously update and enhance your content to ensure relevance and maximize long-term impact.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="image-block upset bg-shape m-mt30 mb0">
-                        <img src="images/Service-image/content.png" alt="Content Marketing Services by Shyphan" class="img-fluid" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-
-    <!--Start CTA-->
-    <section class="cta-area pad-tb">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="common-heading">
-
-                        <h2>We Love to Listen to Your Requirements</h2>
-                        <a href="get-quote.html" class="btn-outline">Estimate Project <i
-                                class="fas fa-chevron-right fa-icon"></i></a>
-                        <p class="cta-call">Or call us now <a href="tel:+919565153545"><i class="fas fa-phone-alt"></i>                                 +919565153545</a></p></a></p>
+                    <div class="common-heading text-center">
+                        <span>Success Stories</span>
+                        <h2>Transforming Businesses Through Technology</h2>
+                        <p>Discover how we've helped businesses across industries achieve their goals through innovative technology solutions. Each case study showcases real challenges, our approach, and measurable results.</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="shape shape-a1"><img src="images/shape/shape-3.svg" alt="shape" /></div>
-        <div class="shape shape-a2"><img src="images/shape/shape-4.svg" alt="shape" /></div>
-        <div class="shape shape-a3"><img src="images/shape/shape-13.svg" alt="shape" /></div>
-        <div class="shape shape-a4"><img src="images/shape/shape-11.svg" alt="shape" /></div>
+    </section>
+    <!--End About-->
+
+    <!--Start Case Studies-->
+    <section class="service-block bg-gradient6 pad-tb light-dark">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-6 mt30">
+                    <div class="service-card hoshd content-box">
+                        <div class="service-card-body">
+                            <div class="service-card-icon mb20">
+                                <i class="fas fa-hospital" style="font-size: 48px; color: #0279FF;"></i>
+                            </div>
+                            <h4>Hospital Management System</h4>
+                            <p class="mt10"><strong>Client:</strong> Regional Healthcare Network</p>
+                            <p><strong>Industry:</strong> Healthcare</p>
+                            <p><strong>Duration:</strong> 4 months</p>
+                            <p class="mt15"><strong>Challenge:</strong> The hospital needed a comprehensive system to manage patient records, appointments, billing, and inventory across multiple departments.</p>
+                            <p class="mt15"><strong>Solution:</strong> We developed a custom hospital management system with integrated modules for patient management, appointment scheduling, billing, pharmacy, and lab management.</p>
+                            <p class="mt15"><strong>Results:</strong></p>
+                            <ul class="list-style- mt10">
+                                <li>40% reduction in patient wait times</li>
+                                <li>60% improvement in billing accuracy</li>
+                                <li>Streamlined inventory management</li>
+                                <li>Real-time access to patient records</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mt30">
+                    <div class="service-card hoshd content-box">
+                        <div class="service-card-body">
+                            <div class="service-card-icon mb20">
+                                <i class="fas fa-shopping-cart" style="font-size: 48px; color: #0279FF;"></i>
+                            </div>
+                            <h4>E-commerce Platform Development</h4>
+                            <p class="mt10"><strong>Client:</strong> Retail Chain</p>
+                            <p><strong>Industry:</strong> Retail & E-commerce</p>
+                            <p><strong>Duration:</strong> 3 months</p>
+                            <p class="mt15"><strong>Challenge:</strong> A retail business needed a modern e-commerce platform to expand their online presence and increase sales.</p>
+                            <p class="mt15"><strong>Solution:</strong> We built a fully responsive e-commerce website with integrated payment gateways, inventory management, order tracking, and customer management system.</p>
+                            <p class="mt15"><strong>Results:</strong></p>
+                            <ul class="list-style- mt10">
+                                <li>300% increase in online sales</li>
+                                <li>50% reduction in order processing time</li>
+                                <li>Improved customer satisfaction</li>
+                                <li>Mobile-optimized shopping experience</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mt30">
+                    <div class="service-card hoshd content-box">
+                        <div class="service-card-body">
+                            <div class="service-card-icon mb20">
+                                <i class="fas fa-users" style="font-size: 48px; color: #0279FF;"></i>
+                            </div>
+                            <h4>Zoho CRM Implementation</h4>
+                            <p class="mt10"><strong>Client:</strong> B2B Service Company</p>
+                            <p><strong>Industry:</strong> Professional Services</p>
+                            <p><strong>Duration:</strong> 2 months</p>
+                            <p class="mt15"><strong>Challenge:</strong> The company struggled with managing customer relationships, tracking sales pipelines, and coordinating between teams.</p>
+                            <p class="mt15"><strong>Solution:</strong> We implemented and customized Zoho CRM with automated workflows, sales pipeline management, email integration, and reporting dashboards.</p>
+                            <p class="mt15"><strong>Results:</strong></p>
+                            <ul class="list-style- mt10">
+                                <li>35% increase in sales conversion rate</li>
+                                <li>50% improvement in lead response time</li>
+                                <li>Better team collaboration</li>
+                                <li>Comprehensive sales analytics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mt30">
+                    <div class="service-card hoshd content-box">
+                        <div class="service-card-body">
+                            <div class="service-card-icon mb20">
+                                <i class="fas fa-graduation-cap" style="font-size: 48px; color: #0279FF;"></i>
+                            </div>
+                            <h4>School Management System</h4>
+                            <p class="mt10"><strong>Client:</strong> Educational Institution</p>
+                            <p><strong>Industry:</strong> Education</p>
+                            <p><strong>Duration:</strong> 5 months</p>
+                            <p class="mt15"><strong>Challenge:</strong> A school needed a centralized system to manage student information, attendance, grades, fees, and communication with parents.</p>
+                            <p class="mt15"><strong>Solution:</strong> We developed a comprehensive school management system with student portal, parent portal, teacher dashboard, and administrative modules.</p>
+                            <p class="mt15"><strong>Results:</strong></p>
+                            <ul class="list-style- mt10">
+                                <li>80% reduction in administrative workload</li>
+                                <li>Improved parent-teacher communication</li>
+                                <li>Automated fee collection and reminders</li>
+                                <li>Real-time attendance and grade tracking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mt30">
+                    <div class="service-card hoshd content-box">
+                        <div class="service-card-body">
+                            <div class="service-card-icon mb20">
+                                <i class="fas fa-building" style="font-size: 48px; color: #0279FF;"></i>
+                            </div>
+                            <h4>Real Estate Management Platform</h4>
+                            <p class="mt10"><strong>Client:</strong> Real Estate Agency</p>
+                            <p><strong>Industry:</strong> Real Estate</p>
+                            <p><strong>Duration:</strong> 4 months</p>
+                            <p class="mt15"><strong>Challenge:</strong> Managing property listings, client inquiries, document management, and sales tracking across multiple locations.</p>
+                            <p class="mt15"><strong>Solution:</strong> We created a custom real estate management platform with property listing management, CRM integration, document storage, and analytics dashboard.</p>
+                            <p class="mt15"><strong>Results:</strong></p>
+                            <ul class="list-style- mt10">
+                                <li>45% increase in property inquiries</li>
+                                <li>Streamlined document management</li>
+                                <li>Better client relationship management</li>
+                                <li>Improved sales tracking and reporting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mt30">
+                    <div class="service-card hoshd content-box">
+                        <div class="service-card-body">
+                            <div class="service-card-icon mb20">
+                                <i class="fas fa-utensils" style="font-size: 48px; color: #0279FF;"></i>
+                            </div>
+                            <h4>Restaurant Management System</h4>
+                            <p class="mt10"><strong>Client:</strong> Restaurant Chain</p>
+                            <p><strong>Industry:</strong> Hospitality</p>
+                            <p><strong>Duration:</strong> 3 months</p>
+                            <p class="mt15"><strong>Challenge:</strong> Managing orders, inventory, staff scheduling, and customer feedback across multiple restaurant locations.</p>
+                            <p class="mt15"><strong>Solution:</strong> We developed a restaurant management system with POS integration, inventory management, staff scheduling, and customer loyalty program.</p>
+                            <p class="mt15"><strong>Results:</strong></p>
+                            <ul class="list-style- mt10">
+                                <li>30% improvement in order accuracy</li>
+                                <li>25% reduction in food waste</li>
+                                <li>Efficient staff scheduling</li>
+                                <li>Increased customer retention</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mt30">
+                    <div class="service-card hoshd content-box">
+                        <div class="service-card-body">
+                            <div class="service-card-icon mb20">
+                                <i class="fas fa-book" style="font-size: 48px; color: #0279FF;"></i>
+                            </div>
+                            <h4>Zoho Books Implementation</h4>
+                            <p class="mt10"><strong>Client:</strong> Manufacturing Company</p>
+                            <p><strong>Industry:</strong> Manufacturing</p>
+                            <p><strong>Duration:</strong> 2 months</p>
+                            <p class="mt15"><strong>Challenge:</strong> Manual accounting processes causing delays, errors, and lack of real-time financial visibility.</p>
+                            <p class="mt15"><strong>Solution:</strong> We implemented Zoho Books with custom workflows, automated invoicing, inventory tracking, and comprehensive financial reporting.</p>
+                            <p class="mt15"><strong>Results:</strong></p>
+                            <ul class="list-style- mt10">
+                                <li>70% reduction in accounting processing time</li>
+                                <li>Real-time financial dashboards</li>
+                                <li>Automated invoice generation and reminders</li>
+                                <li>Improved cash flow management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mt30">
+                    <div class="service-card hoshd content-box">
+                        <div class="service-card-body">
+                            <div class="service-card-icon mb20">
+                                <i class="fas fa-cut" style="font-size: 48px; color: #0279FF;"></i>
+                            </div>
+                            <h4>Salon Management Software</h4>
+                            <p class="mt10"><strong>Client:</strong> Beauty Salon Chain</p>
+                            <p><strong>Industry:</strong> Beauty & Wellness</p>
+                            <p><strong>Duration:</strong> 2.5 months</p>
+                            <p class="mt15"><strong>Challenge:</strong> Managing appointments, staff schedules, customer records, and inventory across multiple salon locations.</p>
+                            <p class="mt15"><strong>Solution:</strong> We developed a salon management system with online booking, staff management, customer database, and inventory tracking.</p>
+                            <p class="mt15"><strong>Results:</strong></p>
+                            <ul class="list-style- mt10">
+                                <li>50% increase in online bookings</li>
+                                <li>Reduced no-shows by 40%</li>
+                                <li>Improved customer retention</li>
+                                <li>Streamlined inventory management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mt30">
+                    <div class="service-card hoshd content-box">
+                        <div class="service-card-body">
+                            <div class="service-card-icon mb20">
+                                <i class="fas fa-hand-holding-usd" style="font-size: 48px; color: #0279FF;"></i>
+                            </div>
+                            <h4>Microfinance Management System</h4>
+                            <p class="mt10"><strong>Client:</strong> Microfinance Institution</p>
+                            <p><strong>Industry:</strong> Financial Services</p>
+                            <p><strong>Duration:</strong> 5 months</p>
+                            <p class="mt15"><strong>Challenge:</strong> Managing loan applications, disbursements, repayments, and customer records for thousands of clients efficiently.</p>
+                            <p class="mt15"><strong>Solution:</strong> We built a comprehensive microfinance management system with loan management, payment tracking, customer portal, and reporting modules.</p>
+                            <p class="mt15"><strong>Results:</strong></p>
+                            <ul class="list-style- mt10">
+                                <li>60% faster loan processing</li>
+                                <li>Improved repayment tracking</li>
+                                <li>Better risk assessment capabilities</li>
+                                <li>Enhanced customer service</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Case Studies-->
+
+    <!--Start Stats-->
+    <section class="service pad-tb">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="common-heading text-center">
+                        <span>Our Impact</span>
+                        <h2>Numbers That Speak</h2>
+                        <p>Our solutions have made a real difference for businesses across industries.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt60">
+                <div class="col-lg-3 col-md-6 mt30">
+                    <div class="service-card hoshd text-center">
+                        <div class="service-card-body">
+                            <h2 class="counter" style="font-size: 48px; color: #0279FF; font-weight: bold;">200+</h2>
+                            <p class="mt10">Projects Completed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt30">
+                    <div class="service-card hoshd text-center">
+                        <div class="service-card-body">
+                            <h2 class="counter" style="font-size: 48px; color: #0279FF; font-weight: bold;">150+</h2>
+                            <p class="mt10">Happy Clients</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt30">
+                    <div class="service-card hoshd text-center">
+                        <div class="service-card-body">
+                            <h2 class="counter" style="font-size: 48px; color: #0279FF; font-weight: bold;">13+</h2>
+                            <p class="mt10">Years of Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt30">
+                    <div class="service-card hoshd text-center">
+                        <div class="service-card-body">
+                            <h2 class="counter" style="font-size: 48px; color: #0279FF; font-weight: bold;">98%</h2>
+                            <p class="mt10">Client Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Stats-->
+
+    <!--Start CTA-->
+    <section class="cta-new pad-tb">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="common-heading text-center">
+                        <h2>Ready to Start Your Success Story?</h2>
+                        <p>Let's discuss how we can help transform your business with innovative technology solutions. Contact us today for a free consultation.</p>
+                        <a href="get-quote.html" class="btn-main bg-btn5 lnk mt20">Get Started <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!--End CTA-->
-
-    <!--Start Footer-->
+<!--Start Footer-->
     <footer class="dark-footer dg-bg--1 pt60 nshape dark-footer-1">
         <div class="container">
             <div class="row justify-content-between">
@@ -1015,15 +1222,16 @@
                     <ul class="footer-address-list ftr-details">
                         <li>
                             <span><i class="fas fa-envelope"></i></span>
-                            <p>Email <span> <a href="mailto:contact@shyphan.com">contact@shyphan.com</a></span></p>
+                            <p>Email <span> <a href="mailto:contact@shyphan.com">contact@shyphan.com</a></span>
+                            </p>
                         </li>
                         <li>
                             <span><i class="fas fa-phone-alt"></i></span>
                             <p>Phone <span> <a href="tel:+919565153545">+91-9565153545</a></span></p>
                         </li>
                         <li>
-                            <span><i class="fas fa-map-marker-alt"></i></span>
-                            <p>Address <span> UG B04, Tower 3, NX ONE, Noida, Uttar Pradesh 201301</span></p>
+                            <span><i class="fas fa-phone-alt"></i></span>
+                            <p>Phone <span> <a href="tel:+573028500182">+57 302 850-0182</a></span></p>
                         </li>
                     </ul>
                 </div>
@@ -1031,10 +1239,11 @@
                 <div class="col-lg-2 col-sm-6">
                     <h5 class="mb30 mt30">Zoho Products</h5>
                     <ul class="footer-address-list link-hover">
-                        <li><a href="get-quote.html">Custom Web Designing</a></li>
-                        <li><a href="javascript:void(0)">Custom Software Development</a></li>
-                        <li><a href="javascript:void(0)">Mobile App Development</a></li>
-                        <li><a href="javascript:void(0)">Google Adword Marketing</a></li>
+                        <li><a href="zoho-books.html">Zoho Books</a></li>
+                        <li><a href="zoho-people.html">Zoho People</a></li>
+                        <li><a href="zoho-crm.html">Zoho CRM</a></li>
+                        <li><a href="zoho-creator.html">Zoho Creator</a></li>
+                        <li><a href="zoho-payroll.html">Zoho Payroll</a></li>
                     </ul>
                 </div>
 
@@ -1069,7 +1278,7 @@
         </div>
     </footer>
     <!--End Footer-->
-    <!-- js placed at the end of the document so the pages load faster -->
+<!-- js placed at the end of the document so the pages load faster -->
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
@@ -1382,13 +1591,6 @@
             }
         })();
     </script>
-
-    <!-- Zoho CRM Integration Script -->
-    <script src="js/zoho-crm-integration.js"></script>
-
-    <!-- Zoho WebForm Analytics (include ONCE per page; kept as provided) -->
-    <script id="wf_anal"
-        src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=36d079732b53cfec8ff3a63e3492c2a6195d4320077bd97e2a576dc49a11901ffbf352d196461d3046e80e1d9bed77e3gid65151fdd076d7da217ab0e76ee25da556f9ca3f6f88d9e094183287cac94bcc9gid892c2466bdd93c88793126f522ec4109de72d0990df88a4608d6bfc34bf9d141gid746845c91d476716ef89b57c5d2e4b4ea70b7abfac520678a3deb7b29cb87bd3&tw=4ca93b722df015027cb74a89d6062ae02f614c63f898fc9dbf0a51c1bbb517b0"></script>
 
     <!-- Zoho CRM Integration Script -->
     <script src="js/zoho-crm-integration.js"></script>

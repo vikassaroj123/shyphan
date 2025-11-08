@@ -9645,3 +9645,152 @@ a.smllbtnn {
         opacity: 0;
     }
 }
+
+/* Content Box with Corner Lines */
+.content-box {
+    position: relative;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+}
+
+/* Responsive card heights */
+@media (max-width: 991px) {
+    .content-box {
+        min-height: auto;
+        height: auto;
+    }
+}
+
+.content-box:hover {
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.content-box::before,
+.content-box::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #e60072;
+}
+
+.content-box::before {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 8px;
+}
+
+.content-box::after {
+    bottom: 0;
+    right: 0;
+    border-left: none;
+    border-top: none;
+    border-bottom-right-radius: 8px;
+}
+
+.content-box h3,
+.content-box h4 {
+    color: #050748;
+    margin-bottom: 15px;
+}
+
+.content-box p {
+    color: #6a6a8e;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.content-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.content-box ul li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #6a6a8e;
+}
+
+.content-box ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #e60072;
+    font-weight: bold;
+}
+
+.content-box .service-card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.content-box .service-card-body a {
+    margin-top: auto;
+}
+
+/* Ensure navbar links are black when sticky on inner pages */
+body.inner-page .main-header.sticky .custom-nav .nav-list li a.menu-links,
+body.inner-page .main-header.sticky .dropdown-symbol {
+    color: #050748 !important;
+}
+
+/* Ensure navbar links are black on inner pages (both sticky and non-sticky) */
+body.inner-page .main-header .custom-nav .nav-list li a.menu-links,
+body.inner-page .main-header .dropdown-symbol,
+body.inner-page .main-header.sticky .custom-nav .nav-list li a.menu-links,
+body.inner-page .main-header.sticky .dropdown-symbol {
+    color: #050748 !important;
+}
+
+/* Override any white color rules for inner pages */
+body.inner-page .main-header .nav-list li a.menu-links,
+body.inner-page .main-header .custom-nav .nav-list li a.menu-links,
+body.inner-page .main-header.sticky .nav-list li a.menu-links,
+body.inner-page .main-header.sticky .custom-nav .nav-list li a.menu-links,
+body.inner-page .nav-bg-b .custom-nav .nav-list li a.menu-links,
+body.inner-page .main-header .nav-bg-b .custom-nav .nav-list li a.menu-links {
+    color: #050748 !important;
+}
+
+/* Center content sections */
+.service-block .row {
+    justify-content: center;
+}
+
+/* Center breadcrumb content */
+.breadcrumb-area .bread-inner {
+    text-align: center;
+}
+
+.breadcrumb-area .bread-menu ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb-area .bread-menu ul li {
+    display: inline-block;
+}
+
+/* FAQ accordion items should not have fixed height */
+.accordion-body.content-box {
+    min-height: auto;
+    height: auto;
+    display: block;
+}
