@@ -2724,7 +2724,7 @@
                 // Show popup after 10 seconds
                 setTimeout(function () {
                     showModal();
-                }, 10000); // 10 seconds = 10000 milliseconds
+                }, 60000); // 60 seconds  this for popup open in every 60 seconds
 
                 // Set interval to show every 10 seconds (if user closes it)
                 modalInterval = setInterval(function () {
@@ -2732,7 +2732,7 @@
                     if (popupModalElement && !popupModalElement.classList.contains('show')) {
                         showModal();
                     }
-                }, 10000); // Every 10 seconds
+                }, 60000); // Every 60 seconds
             }
 
             // Handle modal close button
