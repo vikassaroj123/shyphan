@@ -1130,10 +1130,31 @@
             width: 85%;
             max-height: calc(85vh - 100px);
             overflow-y: auto;
+            overflow-x: hidden;
             z-index: 10000;
             animation: slideUp 0.4s ease;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             margin: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Custom scrollbar for modal */
+        .portfolio-modal-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .portfolio-modal-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .portfolio-modal-content::-webkit-scrollbar-thumb {
+            background: #4f4daf;
+            border-radius: 10px;
+        }
+        
+        .portfolio-modal-content::-webkit-scrollbar-thumb:hover {
+            background: #3d3b8f;
         }
         
         @keyframes slideUp {
@@ -1272,44 +1293,6 @@
             .portfolio-card {
                 flex: 0 0 calc(50% - 12px);
                 max-width: calc(50% - 12px);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .portfolio-slider-wrapper {
-                padding: 0 50px;
-            }
-            
-            .portfolio-card {
-                flex: 0 0 calc(50% - 12px);
-                max-width: calc(50% - 12px);
-            }
-            
-            .portfolio-slider-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-            
-            .portfolio-slider-prev {
-                left: -20px;
-            }
-            
-            .portfolio-slider-next {
-                right: -20px;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .portfolio-modal-content {
-                width: 95%;
-                max-height: 95vh;
-            }
-            
-            .portfolio-modal-body {
-                padding: 30px 20px;
             }
         }
         
@@ -1931,6 +1914,426 @@
             .form-group-contact .iti input,
             .sidebarform .iti input {
                 padding: 12px 12px 12px 55px !important;
+            }
+            
+            /* Portfolio Section Mobile */
+            .portfolio-section {
+                padding: 50px 0;
+            }
+            
+            .portfolio-slider-wrapper {
+                padding: 0 40px;
+            }
+            
+            .portfolio-card {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+                scroll-snap-align: start;
+            }
+            
+            .portfolio-card-inner {
+                box-shadow: none !important;
+            }
+            
+            .portfolio-slider {
+                gap: 15px;
+                scroll-snap-type: x mandatory;
+                scroll-padding: 0 40px;
+            }
+            
+            .portfolio-slider-wrapper {
+                overflow: visible;
+            }
+            
+            .portfolio-slider-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+            
+            .portfolio-slider-prev {
+                left: -15px;
+            }
+            
+            .portfolio-slider-next {
+                right: -15px;
+            }
+            
+            /* Portfolio Modal Mobile */
+            .portfolio-modal.active {
+                align-items: flex-start;
+                padding-top: 90px;
+                padding-bottom: 20px;
+            }
+            
+            .portfolio-modal-content {
+                width: 95%;
+                max-width: 95%;
+                max-height: 90vh;
+                margin: 0 auto;
+                border-radius: 15px;
+            }
+            
+            .portfolio-modal-body {
+                padding: 25px 15px 35px 15px;
+            }
+            
+            .portfolio-modal-tech {
+                margin-bottom: 20px;
+            }
+            
+            .portfolio-modal-close {
+                width: 35px;
+                height: 35px;
+                top: 15px;
+                right: 15px;
+                font-size: 1rem;
+            }
+            
+            .portfolio-modal-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+            
+            .portfolio-modal-header h2 {
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+            
+            .portfolio-modal-header p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+            
+            .portfolio-modal-features {
+                margin-top: 25px;
+            }
+            
+            .portfolio-modal-features h3 {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr !important;
+                gap: 12px;
+            }
+            
+            .feature-item {
+                padding: 12px;
+                gap: 10px;
+            }
+            
+            .feature-item i {
+                font-size: 1rem;
+            }
+            
+            .feature-item span {
+                font-size: 0.9rem;
+            }
+            
+            .portfolio-modal-tech {
+                margin-top: 25px;
+                padding-top: 25px;
+            }
+            
+            .portfolio-modal-tech h3 {
+                font-size: 1.2rem;
+                margin-bottom: 12px;
+            }
+            
+            .tech-tags {
+                gap: 8px;
+            }
+            
+            .tech-tag {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* Tablet Responsive */
+        @media (max-width: 991px) and (min-width: 769px) {
+            .phone-dial-code-prefix {
+                left: 14px;
+                font-size: 0.92rem;
+            }
+            
+            .form-group-hero .iti input,
+            .form-group-contact .iti input,
+            .sidebarform .iti input {
+                padding: 12px 14px 12px 60px !important;
+            }
+            
+            .portfolio-card {
+                flex: 0 0 calc(50% - 12px) !important;
+                max-width: calc(50% - 12px) !important;
+            }
+            
+            /* Portfolio Modal Tablet */
+            .portfolio-modal.active {
+                padding-top: 80px;
+            }
+            
+            .portfolio-modal-content {
+                width: 90%;
+                max-width: 650px;
+                max-height: 88vh;
+            }
+            
+            .portfolio-modal-body {
+                padding: 30px 25px;
+            }
+            
+            .portfolio-modal-header h2 {
+                font-size: 1.6rem;
+            }
+            
+            .portfolio-modal-features h3,
+            .portfolio-modal-tech h3 {
+                font-size: 1.3rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+        
+        /* Small Mobile Devices */
+        @media (max-width: 480px) {
+            .phone-dial-code-prefix {
+                left: 10px;
+                font-size: 0.85rem;
+                min-width: 40px;
+            }
+            
+            .form-group-hero .iti input,
+            .form-group-contact .iti input,
+            .sidebarform .iti input {
+                padding: 11px 10px 11px 50px !important;
+                font-size: 0.9rem !important;
+            }
+            
+            .hero-quick-form {
+                padding: 20px 15px;
+            }
+            
+            .contact-form-wrapper {
+                padding: 25px 15px;
+            }
+            
+            .portfolio-slider-wrapper {
+                padding: 0 35px;
+            }
+            
+            .portfolio-card {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+                scroll-snap-align: start;
+            }
+            
+            .portfolio-slider {
+                scroll-padding: 0 35px;
+            }
+            
+            .portfolio-slider-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
+            }
+            
+            .portfolio-slider-prev {
+                left: -10px;
+            }
+            
+            .portfolio-slider-next {
+                right: -10px;
+            }
+            
+            /* Portfolio Modal Small Mobile */
+            .portfolio-modal.active {
+                padding-top: 85px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            
+            .portfolio-modal-content {
+                width: 98%;
+                max-width: 98%;
+                max-height: 95vh;
+                border-radius: 12px;
+            }
+            
+            .portfolio-modal-body {
+                padding: 20px 12px 30px 12px;
+            }
+            
+            .portfolio-modal-tech {
+                margin-bottom: 15px;
+            }
+            
+            .portfolio-modal-close {
+                width: 32px;
+                height: 32px;
+                top: 12px;
+                right: 12px;
+                font-size: 0.9rem;
+            }
+            
+            .portfolio-modal-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.6rem;
+                margin-bottom: 12px;
+            }
+            
+            .portfolio-modal-header h2 {
+                font-size: 1.2rem;
+                margin-bottom: 8px;
+            }
+            
+            .portfolio-modal-header p {
+                font-size: 0.85rem;
+                line-height: 1.5;
+            }
+            
+            .portfolio-modal-features {
+                margin-top: 20px;
+            }
+            
+            .portfolio-modal-features h3 {
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+            }
+            
+            .feature-item {
+                padding: 10px;
+                gap: 8px;
+            }
+            
+            .feature-item i {
+                font-size: 0.9rem;
+            }
+            
+            .feature-item span {
+                font-size: 0.85rem;
+            }
+            
+            .portfolio-modal-tech {
+                margin-top: 20px;
+                padding-top: 20px;
+            }
+            
+            .portfolio-modal-tech h3 {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+            }
+            
+            .tech-tag {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+            
+            .portfolio-card-title {
+                font-size: 1.1rem;
+            }
+            
+            .portfolio-card-description {
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* Extra Small Devices */
+        @media (max-width: 360px) {
+            .phone-dial-code-prefix {
+                left: 8px;
+                font-size: 0.8rem;
+                min-width: 35px;
+            }
+            
+            .form-group-hero .iti input,
+            .form-group-contact .iti input,
+            .sidebarform .iti input {
+                padding: 10px 8px 10px 45px !important;
+                font-size: 0.85rem !important;
+            }
+            
+            .portfolio-slider-wrapper {
+                padding: 0 30px;
+            }
+            
+            .portfolio-slider-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 0.75rem;
+            }
+            
+            /* Portfolio Modal Extra Small */
+            .portfolio-modal.active {
+                padding-top: 80px;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+            
+            .portfolio-modal-content {
+                width: 100%;
+                max-width: 100%;
+                max-height: 98vh;
+                border-radius: 10px;
+            }
+            
+            .portfolio-modal-body {
+                padding: 18px 10px 25px 10px;
+            }
+            
+            .portfolio-modal-tech {
+                margin-bottom: 15px;
+            }
+            
+            .portfolio-modal-close {
+                width: 30px;
+                height: 30px;
+                top: 10px;
+                right: 10px;
+                font-size: 0.85rem;
+            }
+            
+            .portfolio-modal-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+            
+            .portfolio-modal-header h2 {
+                font-size: 1.1rem;
+            }
+            
+            .portfolio-modal-header p {
+                font-size: 0.8rem;
+            }
+            
+            .portfolio-modal-features h3,
+            .portfolio-modal-tech h3 {
+                font-size: 1rem;
+            }
+            
+            .feature-item {
+                padding: 8px;
+            }
+            
+            .feature-item span {
+                font-size: 0.8rem;
+            }
+            
+            .tech-tag {
+                padding: 4px 8px;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -4268,18 +4671,22 @@
                 const card = portfolioSlider.querySelector('.portfolio-card');
                 if (card) {
                     const cardWidth = card.offsetWidth;
-                    const gap = 25;
-                    return (cardWidth + gap) * 3; // Scroll 3 cards at a time
+                    const gap = window.innerWidth <= 768 ? 15 : 25;
+                    // On mobile, scroll 1 card at a time; on desktop, scroll 3 cards
+                    const cardsToScroll = window.innerWidth <= 768 ? 1 : 3;
+                    return (cardWidth + gap) * cardsToScroll;
                 }
-                return 1200; // Fallback
+                return window.innerWidth <= 768 ? 350 : 1200; // Fallback
             }
             
             portfolioNext.addEventListener('click', () => {
-                portfolioSlider.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+                const scrollAmount = getScrollAmount();
+                portfolioSlider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
             });
             
             portfolioPrev.addEventListener('click', () => {
-                portfolioSlider.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+                const scrollAmount = getScrollAmount();
+                portfolioSlider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
             });
         }
         
